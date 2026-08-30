@@ -1,4 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Baker's Handover</title>
+<meta name="description" content="A scroll essay on working with AI agents — written for colleagues who do not work in tech.">
+<meta name="theme-color" content="#1e1a15">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E %3Crect width='32' height='32' fill='%23efe3c9'/%3E %3Cg fill='%232a2119'%3E %3Cpath d='M4.6 19.4h22.8v6.6a1.5 1.5 0 0 1-1.5 1.5H6.1a1.5 1.5 0 0 1-1.5-1.5z'/%3E %3Cellipse cx='16' cy='19.4' rx='11.4' ry='2.5'/%3E %3C/g%3E %3Cellipse cx='16' cy='19.4' rx='11.4' ry='2.5' fill='none' stroke='%23efe3c9' stroke-width='.7' opacity='.55'/%3E %3Cg fill='%232a2119'%3E %3Cpath d='M9.9 13.2h12.2v6.2H9.9z'/%3E %3Cellipse cx='16' cy='13.2' rx='6.1' ry='1.7'/%3E %3C/g%3E %3Ccircle cx='16' cy='10.2' r='2.4' fill='%23b34a2e'/%3E %3Crect x='2.6' y='28.7' width='26.8' height='1.15' fill='%232a2119' opacity='.45'/%3E %3C/svg%3E">
+<link rel="alternate icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
 
 <style>
 /* ============================================================
@@ -328,6 +339,10 @@ svg .agent.on{opacity:1}
 .takeaway{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;border-top:1px solid var(--line-soft);padding-top:1.6rem}
 @media(max-width:760px){.takeaway{grid-template-columns:1fr;gap:1rem}}
 .takeaway b{display:block;font-family:var(--mono);font-size:var(--f-xs);letter-spacing:.14em;color:var(--accent);font-weight:500;margin-bottom:.35rem}
+
+/* struck out in pencil */
+.strike{position:relative;color:var(--ink-faint)}
+.strike::after{content:"";position:absolute;left:-.16em;right:-.16em;top:.58em;height:1px;background:var(--accent);opacity:.5;transform:rotate(-.5deg)}
 
 /* ---------- S13 reference wall ---------- */
 .filters{display:flex;flex-wrap:wrap;gap:.45rem}
@@ -1028,6 +1043,75 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
       <div><b>5.1</b>Know what done looks like, or it picks for you.</div>
       <div><b>5.2</b>Break it into steps. Order, amounts, and a check you can run.</div>
       <div><b>5.3</b>Give it the ingredients and the tools, or you get batter.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S-ASK · MAKE IT A CHEAP YES ============ -->
+<section class="scene tall" data-scene id="s-ask">
+  <div class="wrap">
+    <div class="copy wide rv" style="margin-bottom:2.2rem">
+      <p class="fig">Fig. 9 — The ask</p>
+      <h2>Ask for something small enough that saying yes is easy.</h2>
+      <p class="lede rv d1">Not “let us start using agents.” Something named, small, and finishable.</p>
+    </div>
+    <div class="split" style="align-items:start">
+      <div class="monday rv d2">
+        <p class="mono">The ask — one paragraph long</p>
+        <ol>
+          <li>Six people. Six weeks.</li>
+          <li>Two hours to start, then an hour a week.</li>
+          <li>A named list of small jobs that repeat — nothing sensitive on it.</li>
+          <li>The rules written down first: what it may touch, what it must ask about, what it must never go near.</li>
+          <li>Everyone looks at what actually happened, together, at the end.</li>
+        </ol>
+      </div>
+      <div class="copy">
+        <p class="era rv d2">Then say the part most people leave out</p>
+        <div class="beats">
+          <p class="rv d3">Say out loud that it is <strong>easy to stop</strong>. Then name what would make you stop it — before anyone has to ask you.</p>
+          <p class="rv d4">A yes with a way out costs a manager almost nothing. A yes with no end costs them their name.</p>
+        </div>
+        <p class="era now rv d4" style="margin-top:1.6rem">Who to put in it</p>
+        <div class="beats">
+          <p class="rv d5">Not the most technical people. The ones whose work <strong>repeats</strong>, is already well understood, and carries nothing sensitive.</p>
+          <p class="rv d5">And who are willing to write down how they do it. That is the whole skill.</p>
+        </div>
+        <p class="note rv d5">a few dull wins other people recognise as their own problem. not a demo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S-SAY · WHAT TO SAY, WHAT TO LEAVE OUT ============ -->
+<section class="scene tall" data-scene id="s-say">
+  <div class="wrap">
+    <div class="copy wide rv" style="margin-bottom:2.2rem">
+      <p class="fig">Fig. 10 — What to say, and what to leave at the door</p>
+      <h2>Two things worth saying. Four worth leaving out.</h2>
+    </div>
+    <div class="split" style="align-items:start">
+      <div class="copy">
+        <p class="era rv d1">Say this</p>
+        <div class="beats">
+          <p class="rv d2"><strong>The teaching is already paid for.</strong> This page. Plain English, read at your own desk, no trainer, no room to book. Send the link.</p>
+          <p class="rv d3"><strong>Answer the question nobody asks out loud.</strong> Someone in the room is quietly wondering whether this is how their job goes away. When making the thing gets cheap, knowing whether to trust it gets valuable. That is a step up into checking the work — not a step out of the door.</p>
+        </div>
+        <p class="note rv d3">say it early. otherwise they sit with it all week.</p>
+      </div>
+      <div class="copy">
+        <p class="era now rv d2">Leave this out</p>
+        <div class="beats">
+          <p class="rv d3"><span class="strike">Numbers about how much faster everything will be.</span></p>
+          <p class="rv d4"><span class="strike">The word transformation.</span></p>
+          <p class="rv d4"><span class="strike">Money, or more people — not the first time you ask.</span></p>
+          <p class="rv d5"><span class="strike">Any word you would have to stop and explain.</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="copy wide rv d5" style="margin-top:clamp(1.8rem,4vw,2.8rem);border-top:1px solid var(--line-soft);padding-top:1.4rem">
+      <p class="lede">Ask for permission and a little time. That is a different conversation from asking for money.</p>
+      <p class="note" style="margin-top:1.2rem">you are not asking for a new kitchen. you are asking for one afternoon and a small cake.</p>
     </div>
   </div>
 </section>
