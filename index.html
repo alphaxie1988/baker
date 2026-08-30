@@ -178,6 +178,7 @@ svg .dim{fill:none;stroke:var(--accent);stroke-width:.9;vector-effect:non-scalin
 svg .dash{stroke-dasharray:5 4}
 svg text{font-family:var(--mono);font-size:9px;letter-spacing:.1em;fill:var(--ink-faint);text-transform:uppercase}
 svg text.acc{fill:var(--accent)}
+svg .plotbg{fill:var(--ground-2);opacity:.5;stroke:none}
 svg .blue{stroke:#4a86c0}
 svg text.blue{fill:#4a86c0;stroke:none}
 .draw{width:100%;height:auto;display:block;overflow:visible}
@@ -599,7 +600,7 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
     <div class="aged">
       <div class="split">
         <div class="copy">
-          <h2 class="rv">The cakes that made the list came with a recipe. Yours to follow, not yours to change.</h2>
+          <h2 class="rv">The cakes that made the list came with a recipe. You could follow it. You could not change it.</h2>
           <p class="era rv d1">In the past</p>
           <div class="beats">
             <p class="rv d2">The recipe lived in code. You don't write code.</p>
@@ -708,6 +709,7 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
     <div class="split">
       <div>
         <svg class="draw" id="chart" viewBox="0 0 560 340" role="img" aria-label="Chart: doing it yourself rises linearly; teaching an agent has a high setup cost then stays flat, crossing at the break-even batch">
+          <rect class="plotbg" x="60" y="20" width="470" height="270"></rect>
           <path class="ln-thin" d="M60 20v270h470"></path>
           <text x="0" y="16">Effort</text>
           <text x="486" y="308">Cakes →</text>
