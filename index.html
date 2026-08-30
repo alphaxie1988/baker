@@ -360,6 +360,17 @@ svg .agent.on{opacity:1}
 /* footer */
 footer{position:relative;z-index:2;padding:3rem var(--pad) 5rem;color:var(--ink-faint);font-family:var(--mono);font-size:var(--f-xs);letter-spacing:.1em;text-transform:uppercase}
 
+/* ---------- appendix lock ---------- */
+#s13[hidden]{display:none!important}
+#s13{transition:opacity .8s ease,transform .8s ease}
+#s13.locking{opacity:0;transform:translateY(20px)}
+footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
+.keyhint{display:inline-flex;gap:.42rem;vertical-align:middle}
+.keyhint button{font:inherit;font-size:.92em;line-height:1;color:var(--ink-faint);opacity:.3;background:none;border:1px solid var(--line-soft);border-radius:2px;width:1.75em;height:1.75em;display:inline-flex;align-items:center;justify-content:center;padding:0;cursor:pointer;transition:opacity .25s ease,color .25s ease,border-color .25s ease}
+.keyhint button:hover,.keyhint button:focus-visible{opacity:.9;color:var(--accent);border-color:var(--accent)}
+.keyhint button.hit{opacity:1;color:var(--accent);border-color:var(--accent)}
+@media(prefers-reduced-motion:reduce){#s13{transition:none}#s13.locking{opacity:1;transform:none}}
+
 /* reduced motion */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -1022,7 +1033,7 @@ footer{position:relative;z-index:2;padding:3rem var(--pad) 5rem;color:var(--ink-
 </section>
 
 <!-- ============ S13 · REFERENCE WALL ============ -->
-<section class="scene" data-scene id="s13" style="min-height:auto;padding-top:6svh;padding-bottom:6svh">
+<section class="scene" data-scene id="s13" hidden style="min-height:auto;padding-top:6svh;padding-bottom:6svh">
   <div class="wrap">
     <div class="copy wide rv" style="margin-bottom:1.6rem">
       <p class="fig">Appendix — the rest of the kitchen</p>
@@ -1051,7 +1062,9 @@ footer{position:relative;z-index:2;padding:3rem var(--pad) 5rem;color:var(--ink-
 </section>
 
 <footer>
-  <div class="wrap">Drawing No. 001 · The Baker's Handover · Revision B · Drawn by you</div>
+  <div class="wrap">Drawing No. 001 · The Baker's Handover · Revision B · Drawn by you<span class="keyhint" id="keyhint" role="group" aria-label="Unlock the appendix: up, down, left, right">
+    <button type="button" data-k="ArrowUp" aria-label="Up">↑</button><button type="button" data-k="ArrowDown" aria-label="Down">↓</button><button type="button" data-k="ArrowLeft" aria-label="Left">←</button><button type="button" data-k="ArrowRight" aria-label="Right">→</button>
+  </span></div>
 </footer>
 
 <style>
@@ -1391,6 +1404,41 @@ if(cv&&!reduce){
     requestAnimationFrame(loop);
   })();
 }
+
+/* ---------- appendix lock — up, down, left, right ---------- */
+(function(){
+  const ap=byId("s13"); if(!ap) return;
+  const CODE=["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"], STORE="baker.appendix";
+  const hint=byId("keyhint");
+  let i=0;
+
+  const paint=()=>{ if(hint)[...hint.querySelectorAll("button")].forEach((b,n)=>b.classList.toggle("hit",n<i)); };
+
+  function unlock(jump){
+    if(!ap.hidden) return;
+    ap.hidden=false;
+    try{ localStorage.setItem(STORE,"1"); }catch(e){}
+    if(hint) hint.remove();
+    if(!reduce){
+      ap.classList.add("locking");
+      requestAnimationFrame(()=>requestAnimationFrame(()=>ap.classList.remove("locking")));
+    }
+    onScroll();
+    if(jump) ap.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
+  }
+
+  function step(k){
+    if(k===CODE[i]){ i++; paint(); if(i===CODE.length){ i=0; paint(); unlock(true); } }
+    else { i=(k===CODE[0])?1:0; paint(); }
+  }
+
+  /* arrows are not swallowed — keyboard scrolling keeps working */
+  addEventListener("keydown",e=>{ if(ap.hidden) step(e.key); });
+  if(hint) hint.addEventListener("click",e=>{ const b=e.target.closest("button"); if(b) step(b.dataset.k); });
+
+  let seen=null; try{ seen=localStorage.getItem(STORE); }catch(e){}
+  if(seen) unlock(false);
+})();
 
 frame();
 })();
