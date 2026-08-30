@@ -178,6 +178,7 @@ svg .dim{fill:none;stroke:var(--accent);stroke-width:.9;vector-effect:non-scalin
 svg .dash{stroke-dasharray:5 4}
 svg text{font-family:var(--mono);font-size:9px;letter-spacing:.1em;fill:var(--ink-faint);text-transform:uppercase}
 svg text.acc{fill:var(--accent)}
+svg .mask{fill:var(--ground);stroke:none}
 svg .plotbg{fill:var(--ground-2);opacity:.5;stroke:none}
 svg .blue{stroke:#4a86c0}
 svg text.blue{fill:#4a86c0;stroke:none}
@@ -968,24 +969,37 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
       <p class="note rv d4">the head chef who hasn't baked anything in five years can no longer tell when it's wrong.</p>
     </div>
     <div class="rv d2">
-      <svg class="draw" viewBox="0 0 380 260" role="img" aria-label="A slice of cake on a plate, with a fork beside it">
-        <ellipse class="ln" cx="148" cy="206" rx="112" ry="13"></ellipse>
-        <path class="ln" d="M70 196 226 196 226 104Z"></path>
-        <path class="ln-acc" d="M66 189 222 98"></path>
-        <path class="ln-thin" d="M116 170h110"></path>
-        <path class="ln-acc" d="M94 183h132"></path>
-        <circle class="ln-acc" cx="211" cy="104" r="6"></circle>
-        <path class="ln-thin" d="M211 98v-9"></path>
-        <path class="ln" d="M287 76L287 30Q287 24 291 24Q295 24 295 30L295 70
-          Q298 77 301 70L301 28Q301 22 305 22Q309 22 309 28L309 70
-          Q312 77 315 70L315 28Q315 22 319 22Q323 22 323 28L323 70
-          Q326 77 329 70L329 30Q329 24 333 24Q337 24 337 30L337 76
-          C339 93 336 107 322 115C319 118 318 121 318 128
-          C318 140 325 148 328 166L328 202
-          C328 212 321 217 312 217C303 217 296 212 296 202L296 166
-          C299 148 306 140 306 128C306 121 305 118 302 115
-          C288 107 285 93 287 76Z"></path>
-        <text class="acc" x="248" y="238">One slice, tasted</text>
+      <svg class="draw" viewBox="0 0 380 260" role="img" aria-label="A wedge of layer cake on a rimmed plate, five bands of sponge and filling showing on the cut face, a swirl of piped cream on top, with a fork beside it">
+        <!-- plate -->
+        <ellipse class="ln" cx="150" cy="205" rx="118" ry="29"></ellipse>
+        <ellipse class="ln-thin" cx="150" cy="203" rx="92" ry="21"></ellipse>
+
+        <!-- opaque silhouette so the plate does not show through the slice -->
+        <path class="mask" d="M96 146L168 104C205 96 232 108 244 130L244 182L96 198Z"></path>
+
+        <!-- slice -->
+        <path class="ln" d="M96 146L168 104C205 96 232 108 244 130"></path>
+        <path class="ln" d="M96 146L244 130"></path>
+        <path class="ln" d="M96 146L96 198L244 182L244 130"></path>
+
+        <!-- sponge and filling -->
+        <path class="ln-thin" d="M96 156.4L244 140.4"></path>
+        <path class="ln-acc"  d="M96 166.8L244 150.8"></path>
+        <path class="ln-thin" d="M96 177.2L244 161.2"></path>
+        <path class="ln-acc"  d="M96 187.6L244 171.6"></path>
+
+        <!-- piped cream, sitting on the top face -->
+        <path class="mask" d="M149 127C147 112 153 100 163 92C158 82 163 72 173 71
+          C182 70 187 77 183 84C193 87 199 97 196 106C203 112 205 120 202 127
+          C196 134 155 134 149 127Z"></path>
+        <path class="ln-acc" d="M149 127C147 112 153 100 163 92C158 82 163 72 173 71
+          C182 70 187 77 183 84C193 87 199 97 196 106C203 112 205 120 202 127"></path>
+        <path class="ln-acc" d="M149 127C155 134 196 134 202 127"></path>
+        <path class="ln-thin" d="M150 114C162 124 190 123 202 113"></path>
+        <path class="ln-thin" d="M155 100C165 109 189 108 197 99"></path>
+        <path class="ln-thin" d="M163 86C171 94 187 93 192 85"></path>
+
+        <text class="acc" x="150" y="250" text-anchor="middle">One slice, tasted</text>
       </svg>
     </div>
   </div>
