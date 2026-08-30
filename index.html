@@ -972,9 +972,15 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
         <path class="ln-acc" d="M94 183h132"></path>
         <circle class="ln-acc" cx="211" cy="104" r="6"></circle>
         <path class="ln-thin" d="M211 98v-9"></path>
-        <path class="ln" d="M300 40v26M308 34v32M316 34v32M324 40v26"></path>
-        <path class="ln" d="M296 66h32v10a12 12 0 0 1-12 12h-8a12 12 0 0 1-12-12Z"></path>
-        <path class="ln" d="M308 88h8v104a4 4 0 0 1-8 0Z"></path>
+        <path class="ln" d="M287 76L287 30Q287 24 291 24Q295 24 295 30L295 70
+          Q298 77 301 70L301 28Q301 22 305 22Q309 22 309 28L309 70
+          Q312 77 315 70L315 28Q315 22 319 22Q323 22 323 28L323 70
+          Q326 77 329 70L329 30Q329 24 333 24Q337 24 337 30L337 76
+          C339 93 336 107 322 115C319 118 318 121 318 128
+          C318 140 325 148 328 166L328 202
+          C328 212 321 217 312 217C303 217 296 212 296 202L296 166
+          C299 148 306 140 306 128C306 121 305 118 302 115
+          C288 107 285 93 287 76Z"></path>
         <text class="acc" x="248" y="238">One slice, tasted</text>
       </svg>
     </div>
@@ -1153,9 +1159,16 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
             <path d="M404.2 328.0L386.1 328.3"></path>
           </g>
 
+          <!-- hidden lines: what is inside, under the fondant -->
+          <path class="ln-thin dash" d="M125 352h280M125 388h280" opacity=".42"></path>
+          <text x="265" y="373" text-anchor="middle">Pandan sponge &#183; three layers</text>
+
           <!-- middle tier -->
           <path class="ln" d="M167 262v68M363 262v68"></path>
           <ellipse class="ln" cx="265" cy="262" rx="98" ry="13.5"></ellipse>
+          <path class="ln-thin dash" d="M167 292h196" opacity=".42"></path>
+          <text x="265" y="306" text-anchor="middle">Gula melaka cream</text>
+
           <!-- the one piped band -->
           <path class="ln-acc" d="M170 279c11 10 22-8 33 1s22-9 33 0 22-8 33 1 22-9 33 0 22-8 22 1"></path>
 
@@ -1216,8 +1229,13 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
         </div>
         <div class="rv d4" style="margin-top:1.6rem">
           <div class="titleblock">
-            <span>Drawing</span><span><b>001</b></span>
-            <span>Revision</span><span><b>B</b></span>
+            <span>Drawing</span><span><b>001 &#183; Rev B</b></span>
+            <span>Sponge</span><span><b>Pandan chiffon</b></span>
+            <span>Filling</span><span><b>Gula melaka buttercream</b></span>
+            <span>Finish</span><span><b>Ivory fondant</b></span>
+            <span>Flowers</span><span><b>Fresh, top tier only</b></span>
+            <span>Tin</span><span><b>280 / 196 / 124 mm</b></span>
+            <span>Portions</span><span><b>60</b></span>
             <span>On the table</span><span><b>16:00</b></span>
             <span>Status</span><span><b>Done</b></span>
           </div>
@@ -1312,7 +1330,6 @@ const sTray=byId("s-tray"), trayTail=[...document.querySelectorAll("#tray .tail"
 const sRev=byId("s-rev"), revL=byId("rev-l"), revR=byId("rev-r"), revMark=byId("rev-mark");
 const statRects=[...document.querySelectorAll("#plan .st")];
 const statBtns=[...document.querySelectorAll(".station")];
-let stationLock=null;
 
 function frame(){
   /* global progress + dial */
@@ -1374,18 +1391,6 @@ function frame(){
   const t7=1-seg(p7,.18,.66);
   xpl.forEach(g=>{ g.style.transform="translateY("+(parseFloat(g.dataset.x)*t7).toFixed(1)+"px)"; });
 
-  /* S8 — stations light one by one unless the reader is driving */
-  const p8=sceneP(byId("s8"));
-  if(!stationLock){
-    const lit=Math.floor(seg(p8,.2,.72)*(statBtns.length+1));
-    statBtns.forEach((b,i)=>{
-      const on=i<lit;
-      b.classList.toggle("on",on);
-      const r=statRects.find(x=>x.dataset.st===b.dataset.st);
-      if(r) r.classList.toggle("on",on);
-    });
-  }
-
   /* S9 — the oven comes on, and the drawing warms into a used card */
   const p9=sceneP(byId("s9"));
   let g=1-Math.abs(p9-.40)/.15;
@@ -1436,10 +1441,8 @@ gran.addEventListener("input",paintGran); paintGran();
 /* ---------- S8 · stations ---------- */
 statBtns.forEach(b=>{
   const set=on=>{
-    stationLock=on?b.dataset.st:null;
-    statRects.forEach(r=>r.classList.toggle("on",on?r.dataset.st===b.dataset.st:false));
-    statBtns.forEach(x=>x.classList.toggle("on",on?x===b:false));
-    if(!on) onScroll();
+    statRects.forEach(r=>r.classList.toggle("on",on&&r.dataset.st===b.dataset.st));
+    statBtns.forEach(x=>x.classList.toggle("on",on&&x===b));
   };
   b.addEventListener("pointerenter",()=>set(true));
   b.addEventListener("focus",()=>set(true));
