@@ -35,6 +35,8 @@
   --card-edge:rgba(230,243,250,.16);
   --grain-op:.2;
   --grain-blend:overlay;
+  --scroll-track:#081824;
+  --scroll-thumb:#47738f;
 
   --f-xs:.78rem; --f-sm:.92rem; --f-base:1.22rem; --f-md:1.46rem;
   --f-lg:1.8rem; --f-xl:2.35rem; --f-2xl:clamp(2.15rem,5.5vw,4.05rem);
@@ -69,6 +71,8 @@
   --card-edge:rgba(231,221,201,.13);
   --grain-op:.44;
   --grain-blend:overlay;
+  --scroll-track:#171310;
+  --scroll-thumb:#6e614d;
   color-scheme:dark;
 }
 
@@ -90,11 +94,18 @@
   --card-edge:rgba(51,41,29,.2);
   --grain-op:.34;
   --grain-blend:multiply;
+  --scroll-track:#e5d6b6;
+  --scroll-thumb:#847045;
   color-scheme:light;
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scrollbar-color:var(--scroll-thumb) var(--scroll-track);transition:scrollbar-color .5s ease}
+::-webkit-scrollbar{width:13px;height:13px}
+::-webkit-scrollbar-track{background:var(--scroll-track)}
+::-webkit-scrollbar-thumb{background:var(--scroll-thumb);border:3px solid var(--scroll-track);border-radius:9px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+::-webkit-scrollbar-corner{background:var(--scroll-track)}
 body{
   margin:0;
   background:var(--ground);
