@@ -17,8 +17,46 @@
    Cold blueprint -> warm recipe card. The document gets used.
    ============================================================ */
 
-/* --- tokens: phase COLD (blueprint) is the default -------- */
+/* --- tokens: phase OLDEN (aged plate) is the default ------
+   the page opens on this, so it must be what paints before any
+   script runs — otherwise the first frame is the blueprint. */
 :root{
+  --ground:#1e1a15;
+  --ground-2:#171310;
+  --ink:#e4dac6;
+  --ink-dim:#a3927a;
+  --ink-faint:#948572;
+  --line:#e7ddc9;
+  --line-soft:rgba(231,221,201,.34);
+  --grid:rgba(196,166,116,.055);
+  --grid-major:rgba(196,166,116,.10);
+  --accent:#c9a05a;
+  --gold:#c9a05a;
+  --stamp:#a85a3c;
+  --card:rgba(255,255,255,.028);
+  --card-edge:rgba(231,221,201,.13);
+  --grain-op:.44;
+  --grain-blend:overlay;
+  --scroll-track:#171310;
+  --scroll-thumb:#6e614d;
+
+  --f-xs:.78rem; --f-sm:.92rem; --f-base:1.22rem; --f-md:1.46rem;
+  --f-lg:1.8rem; --f-xl:2.35rem; --f-2xl:clamp(2.15rem,5.5vw,4.05rem);
+  --f-hero:clamp(2.35rem,6.3vw,5.45rem);
+
+  /* Windows-native stacks — no webfonts, nothing to fetch */
+  --display:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  --serif:Georgia,"Times New Roman",Times,serif;
+  --mono:Consolas,"Cascadia Mono","Lucida Console","Courier New",monospace;
+  --hand:"Segoe Print","Segoe Script","Ink Free","Bradley Hand",cursive;
+
+  --measure:39rem;
+  --pad:clamp(1.25rem,4vw,3.5rem);
+  color-scheme:dark;
+}
+
+/* --- tokens: phase COLD (blueprint, from Rev. B on) ------- */
+:root[data-phase="cold"]{
   --ground:#0b2030;
   --ground-2:#081824;
   --ink:#dcebf4;
@@ -37,24 +75,11 @@
   --grain-blend:overlay;
   --scroll-track:#081824;
   --scroll-thumb:#47738f;
-
-  --f-xs:.78rem; --f-sm:.92rem; --f-base:1.22rem; --f-md:1.46rem;
-  --f-lg:1.8rem; --f-xl:2.35rem; --f-2xl:clamp(2.15rem,5.5vw,4.05rem);
-  --f-hero:clamp(2.35rem,6.3vw,5.45rem);
-
-  /* Windows-native stacks — no webfonts, nothing to fetch */
-  --display:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
-  --serif:Georgia,"Times New Roman",Times,serif;
-  --mono:Consolas,"Cascadia Mono","Lucida Console","Courier New",monospace;
-  --hand:"Segoe Print","Segoe Script","Ink Free","Bradley Hand",cursive;
-
-  --measure:39rem;
-  --pad:clamp(1.25rem,4vw,3.5rem);
   color-scheme:dark;
 }
 
-/* --- tokens: phase OLDEN (aged plate, before Rev. B) ------ */
-:root[data-phase="olden"],.aged{
+/* --- the aged plate, reproduced inside the cold act ------- */
+.aged{
   --ground:#1e1a15;
   --ground-2:#171310;
   --ink:#e4dac6;
