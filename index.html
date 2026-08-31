@@ -1785,6 +1785,22 @@ if(cv&&!reduce){
   })();
 }
 
+/* the toque rises on a css animation timed from load, so a page opened in a
+   background tab has it rise unseen. run it again when the tab is looked at. */
+if(!reduce && document.hidden){
+  const replay=()=>{
+    if(document.hidden) return;
+    document.removeEventListener("visibilitychange",replay);
+    ["hat","hat-dim","hat-labels"].forEach(id=>{
+      const el=byId(id); if(!el) return;
+      el.style.animation="none";
+      el.getBoundingClientRect();
+      el.style.animation="";
+    });
+  };
+  document.addEventListener("visibilitychange",replay);
+}
+
 /* ---------- confetti, once on arrival ----------
    fires while the toque is still rising, so the two read as one beat.
    three things it has to survive: a reader who scrolls straight away
