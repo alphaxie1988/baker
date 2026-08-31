@@ -195,8 +195,36 @@ svg text.blue{fill:#4a86c0;stroke:none}
 .titleblock span:nth-last-child(-n+2){border-bottom:0}
 .titleblock b{color:var(--ink);font-weight:500}
 
+/* ---------- HUD: sheet index + oven dial ----------
+   the dial was read as a temperature. it is also how far in you are. */
+#hud{
+  position:fixed;right:clamp(.8rem,2.2vw,1.6rem);bottom:clamp(.8rem,2.2vw,1.6rem);z-index:50;
+  display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;
+}
+.hudrow{display:flex;align-items:center;gap:.65rem}
+#hud .hudcap{letter-spacing:.2em;opacity:.8}
+#idx-t{
+  font-family:var(--mono);font-size:var(--f-xs);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-dim);background:var(--ground);border:1px solid var(--line-soft);
+  padding:.55rem .85rem;cursor:pointer;transition:color .25s,border-color .25s;
+}
+#idx-t:hover,#idx-t:focus-visible{color:var(--accent);border-color:var(--accent)}
+#idx-t:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#idx{
+  background:var(--ground);border:1px solid var(--line-soft);padding:.95rem 1.05rem;
+  width:min(20rem,calc(100vw - 2.4rem));max-height:min(58svh,520px);overflow:auto;
+  box-shadow:0 18px 48px rgba(0,0,0,.45);
+}
+#idx .mono{margin-bottom:.65rem}
+#idx a{
+  display:block;padding:.36rem 0;font-size:var(--f-sm);color:var(--ink-dim);
+  text-decoration:none;transition:color .2s;
+}
+#idx a:hover,#idx a:focus-visible{color:var(--accent)}
+#idx a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
 /* oven dial progress */
-#dial{position:fixed;right:clamp(.8rem,2.2vw,1.6rem);bottom:clamp(.8rem,2.2vw,1.6rem);z-index:50;width:74px;height:74px;pointer-events:none}
+#dial{width:74px;height:74px;pointer-events:none;flex:none}
 #dial text{font-size:11px;fill:var(--ink-dim);letter-spacing:.06em}
 #dial .trk{fill:none;stroke:var(--line-soft);stroke-width:2}
 #dial .bar{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round;transition:stroke-dashoffset .12s linear}
@@ -430,11 +458,33 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <div id="grain"></div>
 <div id="oven-glow"></div>
 
-<svg id="dial" viewBox="0 0 74 74" aria-hidden="true">
-  <circle class="trk" cx="37" cy="37" r="29"></circle>
-  <circle class="bar" cx="37" cy="37" r="29" transform="rotate(-90 37 37)" stroke-dasharray="182.2" stroke-dashoffset="182.2"></circle>
-  <text id="dial-t" x="37" y="41" text-anchor="middle">20°C</text>
-</svg>
+<div id="hud">
+  <nav id="idx" hidden aria-label="Sheet index">
+    <p class="mono">Sheet index</p>
+    <a href="#s-tray">Fig. 2 — The tray</a>
+    <a href="#s3">Fig. 3 — How it used to work</a>
+    <a href="#s4">Fig. 4 — When it is worth it</a>
+    <a href="#s5">Fig. 5 — What to get ready</a>
+    <a href="#s6">5.1 — The end product</a>
+    <a href="#s7">5.2 — The recipe</a>
+    <a href="#s8">5.3 — The ingredients</a>
+    <a href="#s9">Fig. 6 — Three rejected cakes</a>
+    <a href="#s10">Fig. 7 — The part you cannot hand over</a>
+    <a href="#s11">Fig. 8 — Revised org chart</a>
+    <a href="#s12">Monday — start here</a>
+    <a href="#s-ask">Fig. 9 — Permission to begin</a>
+    <a href="#s-done">Fig. 10 — The cake, as specified</a>
+  </nav>
+  <div class="hudrow">
+    <button type="button" id="idx-t" aria-expanded="false" aria-controls="idx">Index</button>
+    <svg id="dial" viewBox="0 0 74 74" aria-hidden="true">
+      <circle class="trk" cx="37" cy="37" r="29"></circle>
+      <circle class="bar" cx="37" cy="37" r="29" transform="rotate(-90 37 37)" stroke-dasharray="182.2" stroke-dashoffset="182.2"></circle>
+      <text id="dial-t" x="37" y="41" text-anchor="middle">20°C</text>
+    </svg>
+  </div>
+  <p class="mono hudcap">Progress</p>
+</div>
 
 <!-- ============ S0 · HERO ============ -->
 <section class="scene" data-scene id="s0">
@@ -1657,6 +1707,16 @@ if(cv&&!reduce){
     requestAnimationFrame(loop);
   })();
 }
+
+/* ---------- sheet index ---------- */
+(function(){
+  const t=byId("idx-t"), idx=byId("idx"); if(!t||!idx) return;
+  const set=o=>{ idx.hidden=!o; t.setAttribute("aria-expanded",o?"true":"false"); };
+  t.addEventListener("click",()=>set(idx.hidden));
+  idx.addEventListener("click",e=>{ if(e.target.closest("a")) set(false); });
+  addEventListener("keydown",e=>{ if(e.key==="Escape"&&!idx.hidden) set(false); });
+  addEventListener("pointerdown",e=>{ if(!idx.hidden&&!e.target.closest("#hud")) set(false); });
+})();
 
 /* ---------- appendix lock — up, down, left, right ---------- */
 (function(){
