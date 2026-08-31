@@ -374,6 +374,8 @@ svg .st.on{stroke:var(--accent);fill:rgba(95,198,240,.1)}
 
 /* ---------- S11 org chart ---------- */
 .orgwrap{position:relative}
+/* the chart scales down with the column; the labels get their size back */
+@media(max-width:860px){#org text{font-size:10px}}
 svg .box{fill:var(--card);stroke:var(--line-soft);stroke-width:1.2}
 svg .box.me{stroke:var(--accent);stroke-width:1.8}
 svg .agent{opacity:0;transition:opacity .5s ease}
@@ -1116,22 +1118,30 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
       </div>
     </div>
     <div class="orgwrap rv d2">
-      <svg class="draw" id="org" viewBox="0 0 460 320" role="img" aria-label="Org chart: one person, then eight agents branching beneath">
-        <rect class="box me" x="176" y="16" width="108" height="42"></rect>
-        <text class="acc" x="196" y="34">You</text><text x="196" y="48">Head chef</text>
-        <path class="ln-thin" d="M230 58v30M56 88h348M56 88v20M143 88v20M230 88v20M317 88v20M404 88v20"></path>
-        <g class="agent" data-i="0"><rect class="box" x="16" y="108" width="80" height="36"></rect><text x="28" y="130">Prep</text></g>
-        <g class="agent" data-i="1"><rect class="box" x="103" y="108" width="80" height="36"></rect><text x="115" y="130">Mixing</text></g>
-        <g class="agent" data-i="2"><rect class="box" x="190" y="108" width="80" height="36"></rect><text x="202" y="130">Bake</text></g>
-        <g class="agent" data-i="3"><rect class="box" x="277" y="108" width="80" height="36"></rect><text x="289" y="130">Ice</text></g>
-        <g class="agent" data-i="4"><rect class="box" x="364" y="108" width="80" height="36"></rect><text x="376" y="130">Pack</text></g>
-        <g class="agent" data-i="5"><path class="ln-thin" d="M230 144v28M60 172h360M60 172v18M190 172v18M320 172v18M420 172v18"></path></g>
-        <g class="agent" data-i="6"><rect class="box" x="22" y="190" width="76" height="32"></rect><text x="34" y="210">Sub</text>
-          <rect class="box" x="152" y="190" width="76" height="32"></rect><text x="164" y="210">Sub</text>
-          <rect class="box" x="282" y="190" width="76" height="32"></rect><text x="294" y="210">Sub</text>
-          <rect class="box" x="382" y="190" width="76" height="32"></rect><text x="394" y="210">Sub</text></g>
-        <g class="agent" data-i="7"><path class="ln-thin dash" d="M22 246h436M22 274h436" opacity=".38"></path>
-          <text x="22" y="304">…and however many more you can define work for</text></g>
+      <svg class="draw" id="org" viewBox="0 0 460 280" role="img"
+           aria-label="Org chart three deep: you as head chef at the top; beneath you one agent per cake — pandan, kueh lapis, banana; and beneath those the five steps each agent runs — prep, mixing, bake, ice, pack.">
+        <rect class="box me" x="176" y="10" width="108" height="44"></rect>
+        <text class="acc" x="196" y="30">You</text><text x="196" y="44">Head chef</text>
+
+        <!-- one agent per cake -->
+        <g class="agent" data-i="0"><path class="ln-thin" d="M230 54v18M79 72h302M79 72v14M230 72v14M381 72v14"></path></g>
+        <g class="agent" data-i="1"><rect class="box" x="8" y="86" width="142" height="44"></rect>
+          <text x="22" y="105">Agent for</text><text class="acc" x="22" y="119">Pandan cake</text></g>
+        <g class="agent" data-i="2"><rect class="box" x="159" y="86" width="142" height="44"></rect>
+          <text x="173" y="105">Agent for</text><text class="acc" x="173" y="119">Kueh lapis cake</text></g>
+        <g class="agent" data-i="3"><rect class="box" x="310" y="86" width="142" height="44"></rect>
+          <text x="324" y="105">Agent for</text><text class="acc" x="324" y="119">Banana cake</text></g>
+
+        <!-- and the steps each one runs -->
+        <g class="agent" data-i="4"><path class="ln-thin" d="M79 130v20M230 130v20M381 130v20M46 150h368M46 150v16M138 150v16M230 150v16M322 150v16M414 150v16"></path></g>
+        <g class="agent" data-i="5"><rect class="box" x="6" y="166" width="80" height="34"></rect><text x="17" y="187">Prep</text></g>
+        <g class="agent" data-i="6"><rect class="box" x="98" y="166" width="80" height="34"></rect><text x="109" y="187">Mixing</text></g>
+        <g class="agent" data-i="7"><rect class="box" x="190" y="166" width="80" height="34"></rect><text x="201" y="187">Bake</text></g>
+        <g class="agent" data-i="8"><rect class="box" x="282" y="166" width="80" height="34"></rect><text x="293" y="187">Ice</text></g>
+        <g class="agent" data-i="9"><rect class="box" x="374" y="166" width="80" height="34"></rect><text x="385" y="187">Pack</text></g>
+
+        <g class="agent" data-i="10"><path class="ln-thin dash" d="M6 226h448" opacity=".4"></path>
+          <text x="6" y="254">…and the same five under every cake you add</text></g>
       </svg>
     </div>
   </div>
