@@ -250,6 +250,18 @@ svg text.blue{fill:#4a86c0;stroke:none}
 .revblock{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.05rem;margin:0 auto}
 #revline{max-width:min(760px,100%);margin-bottom:.5rem}
 
+/* ---------- the one link that has to be found ---------- */
+.inline-link{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:.06em}
+.inline-link:hover,.inline-link:focus-visible{color:var(--ink);border-bottom-color:var(--ink)}
+.cta{
+  display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;align-self:flex-start;
+  font-family:var(--mono);font-size:var(--f-sm);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ground);background:var(--accent);border:1px solid var(--accent);
+  padding:.75rem 1.15rem;text-decoration:none;transition:background .25s,color .25s;
+}
+.cta:hover,.cta:focus-visible{background:transparent;color:var(--accent)}
+.cta:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
 /* ---------- S3 the now block ----------
    the aged card above is a reproduction of an older drawing.
    this is the page's own voice, and it is not allowed to be quieter. */
@@ -1093,7 +1105,7 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
     <div class="copy wide rv" style="margin-bottom:2.2rem">
       <p class="fig">Fig. 9 — Permission to begin</p>
       <h2>If you can say those three things, there is nothing left to wait for.</h2>
-      <p class="lede rv d1"><strong>Echo</strong> is our own agentic AI platform. It is already here, and it is already running.</p>
+      <p class="lede rv d1"><a class="inline-link" href="https://go/echo"><strong>Echo</strong></a> is our own agentic AI platform. It is already here, and it is already running.</p>
     </div>
     <div class="split" style="align-items:start">
       <div class="monday rv d2">
@@ -1104,6 +1116,7 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
           <li><strong>Write the steps</strong>, in order, with a check you can run at the end. <em>(5.2)</em></li>
           <li><strong>Point it at what it needs</strong> — your data, your documents, your tools. <em>(5.3)</em></li>
         </ol>
+        <a class="cta" href="https://go/echo">Open Echo · go/echo →</a>
       </div>
       <div class="copy">
         <p class="era rv d2">Then</p>
