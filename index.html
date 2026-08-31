@@ -139,7 +139,7 @@ body{
   mix-blend-mode:var(--grain-blend,overlay);
   transition:opacity .6s ease;
 }
-#confetti{position:absolute;top:0;left:0;z-index:70;pointer-events:none}
+#confetti{position:fixed;inset:0;z-index:70;pointer-events:none}
 #oven-glow{
   position:fixed;inset:0;z-index:60;pointer-events:none;opacity:0;
   background:radial-gradient(120% 80% at 50% 62%,#ffcf7a 0%,#e08a2e 38%,#8a3d10 78%,#3a1704 100%);
@@ -1816,11 +1816,14 @@ if(!reduce && document.hidden){
 
 /* ---------- confetti, once on arrival ----------
    fires while the toque is still rising, so the two read as one beat.
-   the canvas is anchored to the top of the document rather than the
-   viewport, so scrolling down carries the confetti up and out of frame
-   the way anything else on the page would. it also waits for a
-   background tab to be looked at, and is skipped for reduced motion or
-   a restored scroll position below the fold. */
+   the bits live in document coordinates and fall the whole height of
+   the page, but the canvas is only ever one viewport and draws them at
+   y minus scroll, culling the rest — a canvas the height of this
+   document would be past what a browser will allocate. so scrolling
+   down still carries them up out of frame, and they keep falling: get
+   far enough down the page and you catch them up again.
+   it also waits for a background tab to be looked at, and is skipped
+   for reduced motion or a restored scroll position below the fold. */
 (function(){
   if(reduce) return;
   if(scrollY > innerHeight) return;
@@ -1828,11 +1831,13 @@ if(!reduce && document.hidden){
   cv.id="confetti"; cv.setAttribute("aria-hidden","true");
   const ctx=cv.getContext("2d");
   let dpr;
+  let docH=0;
   function size(){
     dpr=Math.min(devicePixelRatio||1,2);
     cv.width=innerWidth*dpr; cv.height=innerHeight*dpr;
     cv.style.width=innerWidth+"px"; cv.style.height=innerHeight+"px";
     ctx.setTransform(dpr,0,0,dpr,0,0);
+    docH=document.documentElement.scrollHeight;
   }
   const COLORS=["#c9a05a","#e0604a","#e4dac6","#a85a3c","#d59a4a"];
   const N=Math.round(clamp(innerWidth/7,60,150));
@@ -1845,24 +1850,30 @@ if(!reduce && document.hidden){
     sway:.6+Math.random()*1.2, c:COLORS[(Math.random()*COLORS.length)|0]
   }));
   /* integrated against elapsed time, not frame count, so a laptop that
-     cannot hold 60fps gets the same fall speed. nothing fades: each bit
-     falls out of frame, and the run ends when the last one has. MAX is
-     only a backstop so a wedged tab cannot leave the loop running. */
-  const MAX=20000;
+     cannot hold 60fps gets the same fall speed. nothing fades: a bit is
+     done when it reaches the foot of the document, and the run ends when
+     the last one has. VMAX keeps the long drop from turning into streaks
+     near the bottom; MAX is only a backstop against a wedged tab. */
+  const VMAX=10, MAX=90000;
   let start=0,last=0,raf;
   function stop(){ cancelAnimationFrame(raf); removeEventListener("resize",size); cv.remove(); }
   function tick(now){
     if(!start){ start=now; last=now; }
     const dt=clamp((now-last)/16.667,0,3), el=now-start;
     last=now;
+    const sy=scrollY;
     ctx.clearRect(0,0,innerWidth,innerHeight);
     let alive=false;
     for(const b of bits){
-      b.vy+=.008*dt;
-      b.x+=(b.vx+Math.sin((el/16.667+b.a*18)/28)*b.sway*.5)*dt;
-      b.y+=b.vy*dt; b.a+=b.va*dt;
-      if(b.y<innerHeight+40) alive=true;
-      ctx.save(); ctx.translate(b.x,b.y); ctx.rotate(b.a);
+      if(b.y<docH+40){
+        alive=true;
+        b.vy=Math.min(b.vy+.008*dt,VMAX);
+        b.x+=(b.vx+Math.sin((el/16.667+b.a*18)/28)*b.sway*.5)*dt;
+        b.y+=b.vy*dt; b.a+=b.va*dt;
+      } else continue;
+      const vy=b.y-sy;                       /* document space -> this viewport */
+      if(vy<-40||vy>innerHeight+40) continue;
+      ctx.save(); ctx.translate(b.x,vy); ctx.rotate(b.a);
       ctx.fillStyle=b.c; ctx.fillRect(-b.w/2,-b.h/2,b.w,b.h); ctx.restore();
     }
     if(alive && el<MAX) raf=requestAnimationFrame(tick); else stop();
