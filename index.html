@@ -206,6 +206,15 @@ svg text.blue{fill:#4a86c0;stroke:none}
 .titleblock span:nth-last-child(-n+2){border-bottom:0}
 .titleblock b{color:var(--ink);font-weight:500}
 
+/* ---------- S0 the hat rises ----------
+   the promotion, done as one line of animation: the toque grows out of
+   the brim, the height dimension grows with it, the labels land after. */
+#hat,#hat-dim{transform-box:fill-box;transform-origin:50% 100%;
+  animation:hatrise 1.9s cubic-bezier(.22,.75,.28,1) .5s both}
+#hat-labels{animation:hatfade .9s ease 2.15s both}
+@keyframes hatrise{from{transform:scaleY(.28)}to{transform:scaleY(1)}}
+@keyframes hatfade{from{opacity:0}to{opacity:1}}
+
 /* ---------- HUD: sheet index + oven dial ----------
    the dial was read as a temperature. it is also how far in you are. */
 #hud{
@@ -463,6 +472,8 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
   #tray .tail,#tray-yours{opacity:1!important}
   #rev-l,#rev-r{stroke-dashoffset:0!important}
   #rev-mark{opacity:1!important}
+  #hat,#hat-dim{animation:none;transform:none}
+  #hat-labels{animation:none;opacity:1}
 }
 </style>
 
@@ -474,7 +485,7 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <div id="hud">
   <nav id="idx" hidden aria-label="Sheet index">
     <p class="mono">Sheet index</p>
-    <a href="#s0">Drawing No. 001 — Subject: Cake</a>
+    <a href="#s0">Drawing No. 001 — Subject: The baker</a>
     <a href="#s-tray">Fig. 2 — The tray</a>
     <a href="#s3">Fig. 3 — How it used to work</a>
     <a href="#s4">Fig. 4 — When it is worth it</a>
@@ -504,36 +515,77 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene" data-scene id="s0">
   <div class="wrap split">
     <div class="copy">
-      <p class="fig rv in">Drawing No. 001 — Subject: Cake</p>
-      <h1 class="rv in d1">You used to<br>make the cake.</h1>
-      <p class="lede rv in d2" style="max-width:26rem">From doing the work, to teaching an agent to do it.</p>
-      <div class="cue rv in d3"><i></i> Scroll — the oven is cold</div>
+      <p class="fig rv in">Drawing No. 001 — Subject: The baker</p>
+      <h1 class="rv in d1">Congratulations.<br>You've been promoted.</h1>
+      <p class="lede rv in d2" style="max-width:27rem">You didn't apply for it. Nobody asked you. And it has already happened.</p>
+      <div class="beats rv in d3" style="max-width:27rem">
+        <p>Imagine, for a moment, that you are a baker.</p>
+        <p>The thing you make — over and over, the thing people come to you for — is <strong>a cake.</strong></p>
+      </div>
+      <p class="note rv in d4">hold on to that. the rest of the page runs on it.</p>
+      <div class="cue rv in d5"><i></i> Scroll — the oven is cold</div>
     </div>
     <div class="parallax" data-speed="-.22">
-      <svg class="draw" viewBox="0 0 420 340" role="img" aria-label="Technical drawing of a three-tier cake with dimensions">
-        <line class="ln-thin" x1="55" y1="278" x2="365" y2="278"></line>
-        <ellipse class="ln" cx="210" cy="278" rx="128" ry="15"></ellipse>
-        <path class="ln" d="M92 208v62"></path><path class="ln" d="M328 208v62"></path>
-        <ellipse class="ln" cx="210" cy="208" rx="118" ry="19"></ellipse>
-        <path class="ln" d="M122 156v50"></path><path class="ln" d="M298 156v50"></path>
-        <ellipse class="ln" cx="210" cy="156" rx="88" ry="15"></ellipse>
-        <path class="ln" d="M150 112v42"></path><path class="ln" d="M270 112v42"></path>
-        <ellipse class="ln" cx="210" cy="112" rx="60" ry="11"></ellipse>
-        <path class="ln-acc" d="M210 74v38"></path>
-        <ellipse class="ln-acc" cx="210" cy="68" rx="5" ry="8"></ellipse>
-        <!-- dimensions -->
-        <path class="dim" d="M40 112v166"></path>
-        <path class="dim" d="M34 112h12M34 278h12"></path>
-        <text class="acc" x="18" y="200" transform="rotate(-90 18 200)">H 166</text>
-        <path class="dim" d="M92 306h236"></path>
-        <path class="dim" d="M92 300v12M328 300v12"></path>
-        <text class="acc" x="188" y="324">Ø 236</text>
-        <!-- leaders -->
-        <path class="dim dash" d="M272 116 314 92"></path><circle class="dim" cx="272" cy="116" r="2.5"></circle>
-        <text x="306" y="84">Fig. 1 — output</text>
-        <path class="dim dash" d="M96 244 46 312"></path><circle class="dim" cx="96" cy="244" r="2.5"></circle>
-        <text x="0" y="326">Fig. 2 — the part</text>
-        <text x="0" y="338">that took all day</text>
+      <svg class="draw" viewBox="0 0 420 440" style="max-width:440px;margin-inline:auto" role="img"
+           aria-label="Technical drawing of a baker seen from the front: a tall chef's toque rising above the head, and a cake on the counter in front, with the hat height and the cake diameter dimensioned.">
+
+        <!-- the toque. drawn first, so the brim closes over its base -->
+        <g id="hat">
+          <path class="mask" d="M170 152 L174 98H246l4 54z"></path>
+          <path class="ln" d="M170 152 L174 98M246 98l4 54"></path>
+          <ellipse class="mask" cx="180" cy="84" rx="32" ry="26"></ellipse>
+          <ellipse class="ln" cx="180" cy="84" rx="32" ry="26"></ellipse>
+          <ellipse class="mask" cx="240" cy="84" rx="32" ry="26"></ellipse>
+          <ellipse class="ln" cx="240" cy="84" rx="32" ry="26"></ellipse>
+          <ellipse class="mask" cx="210" cy="72" rx="38" ry="32"></ellipse>
+          <ellipse class="ln" cx="210" cy="72" rx="38" ry="32"></ellipse>
+        </g>
+
+        <!-- head, then the brim over the top of it -->
+        <ellipse class="mask" cx="210" cy="222" rx="44" ry="48"></ellipse>
+        <ellipse class="ln" cx="210" cy="222" rx="44" ry="48"></ellipse>
+        <path class="ln" d="M167 212c-10-3-15 5-13 13 2 7 9 9 13 7"></path>
+        <path class="ln" d="M253 212c10-3 15 5 13 13-2 7-9 9-13 7"></path>
+        <circle class="ln" cx="196" cy="214" r="3.2"></circle>
+        <circle class="ln" cx="224" cy="214" r="3.2"></circle>
+        <path class="ln" d="M210 216q7 9-1 13"></path>
+        <path class="ln" d="M198 240q12 9 24 0"></path>
+        <path class="mask" d="M152 148q58-7 116 0v22q-58 7-116 0z"></path>
+        <path class="ln" d="M152 148q58-7 116 0v22q-58 7-116 0z"></path>
+
+        <!-- neck and jacket -->
+        <path class="ln" d="M197 266v18M223 266v18"></path>
+        <path class="ln" d="M102 392v-38c0-32 30-58 74-62h68c44 4 74 30 74 62v38"></path>
+
+        <!-- the counter cuts the figure off, so the cake is clearly in front -->
+        <path class="mask" d="M30 372h360v24H30z"></path>
+        <path class="ln-thin" d="M30 372h360M30 392h360"></path>
+
+        <!-- the cake: the work -->
+        <path class="mask" d="M130 323h160v49H130z"></path>
+        <path class="ln" d="M130 336v36M290 336v36"></path>
+        <ellipse class="mask" cx="210" cy="336" rx="80" ry="13"></ellipse>
+        <ellipse class="ln" cx="210" cy="336" rx="80" ry="13"></ellipse>
+        <path class="ln-acc" d="M134 348q10 9 20 0t20 0 20 0 20 0 20 0 20 0 20 0"></path>
+
+        <!-- the hat height, growing with the hat -->
+        <g id="hat-dim">
+          <path class="dim" d="M126 40v112"></path>
+          <path class="dim" d="M120 40h12M120 152h12"></path>
+        </g>
+        <g id="hat-labels">
+          <text class="acc" x="114" y="104" transform="rotate(-90 114 104)">H 112</text>
+          <path class="dim dash" d="M244 58 292 40"></path><circle class="dim" cx="244" cy="58" r="2.5"></circle>
+          <text x="282" y="32">Fig. 1 — the hat</text>
+          <text x="282" y="44">revised upward</text>
+        </g>
+
+        <!-- the cake, dimensioned -->
+        <path class="dim" d="M130 414h160"></path>
+        <path class="dim" d="M130 408v12M290 408v12"></path>
+        <text class="acc" x="184" y="432">&#216; 160</text>
+        <path class="dim dash" d="M152 350 110 336"></path><circle class="dim" cx="152" cy="350" r="2.5"></circle>
+        <text x="18" y="332">Fig. 2 — the work</text>
       </svg>
     </div>
   </div>
