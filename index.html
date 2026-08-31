@@ -1845,17 +1845,17 @@ if(!reduce && document.hidden){
     sway:.6+Math.random()*1.2, c:COLORS[(Math.random()*COLORS.length)|0]
   }));
   /* integrated against elapsed time, not frame count, so a laptop that
-     cannot hold 60fps gets the same fall speed and the same 6s run */
-  const HOLD=4300, FADE=1700;
+     cannot hold 60fps gets the same fall speed. nothing fades: each bit
+     falls out of frame, and the run ends when the last one has. MAX is
+     only a backstop so a wedged tab cannot leave the loop running. */
+  const MAX=20000;
   let start=0,last=0,raf;
   function stop(){ cancelAnimationFrame(raf); removeEventListener("resize",size); cv.remove(); }
   function tick(now){
     if(!start){ start=now; last=now; }
     const dt=clamp((now-last)/16.667,0,3), el=now-start;
     last=now;
-    const life=clamp(1-(el-HOLD)/FADE,0,1);
     ctx.clearRect(0,0,innerWidth,innerHeight);
-    ctx.globalAlpha=life;
     let alive=false;
     for(const b of bits){
       b.vy+=.008*dt;
@@ -1865,8 +1865,7 @@ if(!reduce && document.hidden){
       ctx.save(); ctx.translate(b.x,b.y); ctx.rotate(b.a);
       ctx.fillStyle=b.c; ctx.fillRect(-b.w/2,-b.h/2,b.w,b.h); ctx.restore();
     }
-    ctx.globalAlpha=1;
-    if(alive && life>0) raf=requestAnimationFrame(tick); else stop();
+    if(alive && el<MAX) raf=requestAnimationFrame(tick); else stop();
   }
   function fire(){
     if(scrollY > innerHeight) return;
