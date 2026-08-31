@@ -1786,12 +1786,14 @@ if(cv&&!reduce){
 }
 
 /* ---------- confetti, once on arrival ----------
-   fired as the toque tops out, so the promotion lands and is then
-   celebrated. skipped for reduced motion, and skipped if the reader
-   arrived somewhere other than the top of the page. */
+   fires while the toque is still rising, so the two read as one beat.
+   three things it has to survive: a reader who scrolls straight away
+   (the canvas is fixed, so it plays regardless), a link opened in a
+   background tab (waits for the tab to be looked at), and a restored
+   scroll position deep in the page (skipped — no party off-screen). */
 (function(){
   if(reduce) return;
-  if(scrollY > innerHeight*.5) return;
+  if(scrollY > innerHeight*1.5) return;
   const cv=document.createElement("canvas");
   cv.id="confetti"; cv.setAttribute("aria-hidden","true");
   const ctx=cv.getContext("2d");
@@ -1816,7 +1818,7 @@ if(cv&&!reduce){
   function stop(){ cancelAnimationFrame(raf); removeEventListener("resize",size); cv.remove(); }
   function tick(){
     t++;
-    const life=clamp(1-(t-120)/60,0,1);
+    const life=clamp(1-(t-150)/70,0,1);
     ctx.clearRect(0,0,innerWidth,innerHeight);
     ctx.globalAlpha=life;
     let alive=false;
@@ -1831,11 +1833,20 @@ if(cv&&!reduce){
     ctx.globalAlpha=1;
     if(alive && life>0) raf=requestAnimationFrame(tick); else stop();
   }
-  setTimeout(()=>{
-    if(scrollY > innerHeight*.5) return;
+  function fire(){
+    if(scrollY > innerHeight*1.5) return;
     document.body.appendChild(cv); size(); addEventListener("resize",size);
     raf=requestAnimationFrame(tick);
-  },2150);
+  }
+  setTimeout(()=>{
+    /* opened in a background tab: rAF is throttled there, so wait to be seen */
+    if(document.hidden){
+      const once=()=>{ if(!document.hidden){ document.removeEventListener("visibilitychange",once); setTimeout(fire,400); } };
+      document.addEventListener("visibilitychange",once);
+      return;
+    }
+    fire();
+  },1200);
 })();
 
 /* ---------- sheet index ---------- */
