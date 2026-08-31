@@ -23,7 +23,7 @@
   --ground-2:#081824;
   --ink:#dcebf4;
   --ink-dim:#88aabf;
-  --ink-faint:#54748a;
+  --ink-faint:#6f92a8;
   --line:#e6f3fa;
   --line-soft:rgba(230,243,250,.42);
   --grid:rgba(95,198,240,.11);
@@ -57,7 +57,7 @@
   --ground-2:#171310;
   --ink:#e4dac6;
   --ink-dim:#a3927a;
-  --ink-faint:#7d6f5b;
+  --ink-faint:#948572;
   --line:#e7ddc9;
   --line-soft:rgba(231,221,201,.34);
   --grid:rgba(196,166,116,.055);
@@ -77,8 +77,8 @@
   --ground:#efe3c9;
   --ground-2:#e5d6b6;
   --ink:#2a2119;
-  --ink-dim:#6b5c47;
-  --ink-faint:#a08f74;
+  --ink-dim:#584c3b;
+  --ink-faint:#726250;
   --line:#33291d;
   --line-soft:rgba(51,41,29,.4);
   --grid:rgba(122,96,58,.12);
@@ -221,6 +221,10 @@ svg text.blue{fill:#4a86c0;stroke:none}
 .era::after{content:"";flex:1;height:1px;background:currentColor;opacity:.4;max-width:5rem}
 .era.now{color:var(--accent);font-weight:500}
 
+/* an instruction that matches the device you are holding */
+.on-hover{display:none}
+@media(hover:hover){.on-hover{display:inline}.on-tap{display:none}}
+
 /* margin note */
 .note{font-family:var(--hand);color:var(--accent);font-size:1.16rem;line-height:1.5;transform:rotate(-1.2deg);max-width:26rem;position:relative;padding-left:1.6rem}
 .note::before{content:"";position:absolute;left:0;top:.62em;width:1rem;height:1px;background:var(--accent);opacity:.7}
@@ -290,7 +294,8 @@ svg text.blue{fill:#4a86c0;stroke:none}
 .station:hover,.station.on{border-left-color:var(--accent);color:var(--ink);background:var(--card)}
 .station:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .station b{font-family:var(--mono);font-size:var(--f-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:500}
-.station i{font-style:normal;font-size:var(--f-sm);color:var(--ink-faint)}
+/* these carry content, not atmosphere — they read at body weight */
+.station i{font-style:normal;font-size:var(--f-sm);color:var(--ink-dim)}
 svg .st{fill:transparent;stroke:var(--line-soft);stroke-width:1.3;transition:stroke .3s,fill .3s}
 svg .st.on{stroke:var(--accent);fill:rgba(95,198,240,.1)}
 :root[data-phase="warm"] svg .st.on{fill:rgba(179,74,46,.1)}
@@ -898,7 +903,7 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
         <path class="dim" d="M416 274a9 9 0 0 1 18 0v6"></path>
         <rect class="dim" x="412" y="280" width="26" height="18" fill="none"></rect>
       </svg>
-      <p class="mono" style="margin-top:.9rem;text-align:center">Fig. 5.3 — What the kitchen has to hold · hover a station</p>
+      <p class="mono" style="margin-top:.9rem;text-align:center">Fig. 5.3 — What the kitchen has to hold · <span class="on-tap">tap</span><span class="on-hover">hover</span> a station</p>
     </div>
   </div>
 </section>
