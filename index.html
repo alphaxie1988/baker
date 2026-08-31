@@ -488,21 +488,21 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 
 <div id="hud">
   <nav id="idx" hidden aria-label="Sheet index">
-    <p class="mono">Sheet index</p>
-    <a href="#s0">Drawing No. 001 — Subject: The baker</a>
-    <a href="#s-tray">Fig. 2 — The tray</a>
-    <a href="#s3">Fig. 3 — How it used to work</a>
-    <a href="#s4">Fig. 4 — When it is worth it</a>
-    <a href="#s5">Fig. 5 — What to get ready</a>
-    <a href="#s6">5.1 — The end product</a>
-    <a href="#s7">5.2 — The recipe</a>
-    <a href="#s8">5.3 — The ingredients</a>
-    <a href="#s9">Fig. 6 — Three rejected cakes</a>
-    <a href="#s10">Fig. 7 — The part you cannot hand over</a>
-    <a href="#s11">Fig. 8 — Revised org chart</a>
-    <a href="#s12">Monday — start here</a>
-    <a href="#s-ask">Fig. 9 — Permission to begin</a>
-    <a href="#s-done">Fig. 10 — The cake, as specified</a>
+    <p class="mono" data-copy="hud.mono.1"></p>
+    <a href="#s0" data-copy="hud.idx.1"></a>
+    <a href="#s-tray" data-copy="hud.idx.2"></a>
+    <a href="#s3" data-copy="hud.idx.3"></a>
+    <a href="#s4" data-copy="hud.idx.4"></a>
+    <a href="#s5" data-copy="hud.idx.5"></a>
+    <a href="#s6" data-copy="hud.idx.6"></a>
+    <a href="#s7" data-copy="hud.idx.7"></a>
+    <a href="#s8" data-copy="hud.idx.8"></a>
+    <a href="#s9" data-copy="hud.idx.9"></a>
+    <a href="#s10" data-copy="hud.idx.10"></a>
+    <a href="#s11" data-copy="hud.idx.11"></a>
+    <a href="#s12" data-copy="hud.idx.12"></a>
+    <a href="#s-ask" data-copy="hud.idx.13"></a>
+    <a href="#s-done" data-copy="hud.idx.14"></a>
   </nav>
   <div class="hudrow">
     <button type="button" id="idx-t" aria-expanded="false" aria-controls="idx">Index</button>
@@ -512,22 +512,22 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
       <text id="dial-t" x="37" y="41" text-anchor="middle">20°C</text>
     </svg>
   </div>
-  <p class="mono hudcap">Progress</p>
+  <p class="mono hudcap" data-copy="hud.mono.2"></p>
 </div>
 
 <!-- ============ S0 · HERO ============ -->
 <section class="scene" data-scene id="s0">
   <div class="wrap split">
     <div class="copy">
-      <p class="fig rv in">Drawing No. 001 — Subject: The baker</p>
-      <h1 class="rv in d1">Congratulations.<span class="sub">You've been promoted.</span></h1>
-      <p class="lede rv in d2" style="max-width:27rem">You didn't apply for it. Nobody asked you. And it has already happened.</p>
+      <p class="fig rv in" data-copy="s0.fig.1"></p>
+      <h1 class="rv in d1" data-copy="s0.h1.1"></h1>
+      <p class="lede rv in d2" style="max-width:27rem" data-copy="s0.lede.1"></p>
       <div class="beats rv in d3" style="max-width:27rem">
-        <p>Imagine, for a moment, that you are a baker.</p>
-        <p>The thing you make — over and over, the thing people come to you for — is <strong>a cake.</strong></p>
+        <p data-copy="s0.p.1"></p>
+        <p data-copy="s0.p.2"></p>
       </div>
-      <p class="note rv in d4">hold on to that. the rest of the page runs on it.</p>
-      <div class="cue rv in d5"><i></i> Scroll — the oven is cold</div>
+      <p class="note rv in d4" data-copy="s0.note.1"></p>
+      <div class="cue rv in d5" data-copy="s0.cue.1"></div>
     </div>
     <div class="parallax" data-speed="-.22">
       <svg class="draw" viewBox="0 0 420 440" style="max-width:440px;margin-inline:auto" role="img"
@@ -607,9 +607,9 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
   </div>
   <div style="position:absolute;right:var(--pad);bottom:15svh" class="rv in d4">
     <div class="titleblock">
-      <span>Drawn by</span><span><b>You</b></span>
-      <span>Revision</span><span><b>Final</b></span>
-      <span>Status</span><span><b>Replaced</b></span>
+      <span data-copy="s0.tb.1"></span><span data-copy="s0.tb.2"></span>
+      <span data-copy="s0.tb.3"></span><span data-copy="s0.tb.4"></span>
+      <span data-copy="s0.tb.5"></span><span data-copy="s0.tb.6"></span>
     </div>
   </div>
 </section>
@@ -618,8 +618,8 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s-tray">
   <div class="wrap">
     <div class="copy wide rv" style="margin-bottom:2.4rem">
-      <p class="fig">Fig. 2 — The tray</p>
-      <h2>Automation went to the cakes with the longest queue. Some never made it onto the list.</h2>
+      <p class="fig" data-copy="s-tray.fig.1"></p>
+      <h2 data-copy="s-tray.h2.1"></h2>
     </div>
     <div class="split" style="align-items:start">
       <div style="padding-top:.4rem">
@@ -713,17 +713,17 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
         </svg>
       </div>
       <div class="copy">
-        <p class="era rv d1">Already automated</p>
+        <p class="era rv d1" data-copy="s-tray.era.1"></p>
         <div class="beats">
-          <p class="rv d1">Payroll, invoices, month-end. Someone wrote that recipe once, and the whole building presses the button.</p>
+          <p class="rv d1" data-copy="s-tray.p.1"></p>
         </div>
-        <p class="era now rv d3">Not automated</p>
+        <p class="era now rv d3" data-copy="s-tray.era.2"></p>
         <div class="beats">
-          <p class="rv d3">Then <strong>your</strong> cake. Odd shape, twice a month, wanted by nine people. Still done by hand.</p>
-          <p class="rv d4">There are only so many engineers. They go to the cakes with the most people waiting.</p>
-          <p class="rv d5"><strong>And that will not change.</strong> IT will never have enough people for everyone's cake.</p>
+          <p class="rv d3" data-copy="s-tray.p.2"></p>
+          <p class="rv d4" data-copy="s-tray.p.3"></p>
+          <p class="rv d5" data-copy="s-tray.p.4"></p>
         </div>
-        <p class="lede rv d5" style="border-top:1px solid var(--line-soft);padding-top:1.1rem">So it stays hand-made — unless you can bake it yourself.</p>
+        <p class="lede rv d5" style="border-top:1px solid var(--line-soft);padding-top:1.1rem" data-copy="s-tray.lede.1"></p>
       </div>
     </div>
   </div>
@@ -741,9 +741,9 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
           <text class="acc" x="500" y="42" text-anchor="middle" style="font-size:14px;letter-spacing:0">B</text>
         </g>
       </svg>
-      <p class="mono rv d1" style="color:var(--accent);font-size:var(--f-sm);letter-spacing:.34em">Agentic AI</p>
-      <p class="rv d2" style="font-size:var(--f-lg);line-height:1.25;max-width:34rem;text-wrap:balance">AI that does not just answer questions. It does the work.</p>
-      <p class="mono rv d3">Rev. B — Drawing 001 replaced</p>
+      <p class="mono rv d1" style="color:var(--accent);font-size:var(--f-sm);letter-spacing:.34em" data-copy="s-rev.mono.1"></p>
+      <p class="rv d2" style="font-size:var(--f-lg);line-height:1.25;max-width:34rem;text-wrap:balance" data-copy="s-rev.p.1"></p>
+      <p class="mono rv d3" data-copy="s-rev.mono.2"></p>
     </div>
   </div>
 </section>
@@ -751,22 +751,22 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <!-- ============ S3 · THE TICKET ============ -->
 <section class="scene tall" data-scene id="s3">
   <div class="wrap">
-    <p class="fig rv" style="margin-bottom:1.2rem">Fig. 3 — How it used to work</p>
+    <p class="fig rv" style="margin-bottom:1.2rem" data-copy="s3.fig.1"></p>
 
     <div class="aged">
       <div class="split">
         <div class="copy">
-          <h2 class="rv">The cakes that made the list came with a recipe. You could follow it. You could not change it.</h2>
-          <p class="era rv d1">In the past</p>
+          <h2 class="rv" data-copy="s3.h2.1"></h2>
+          <p class="era rv d1" data-copy="s3.era.1"></p>
           <div class="beats">
-            <p class="rv d2">The recipe lived in code. You don't write code.</p>
-            <p class="rv d3">You filed a ticket. You waited. You got back the wrong thing.</p>
+            <p class="rv d2" data-copy="s3.p.1"></p>
+            <p class="rv d3" data-copy="s3.p.2"></p>
           </div>
         </div>
         <div class="rv d1">
           <div class="case" id="case">
             <div style="border:1px solid var(--card-edge);background:var(--card);padding:1.4rem">
-              <p class="mono" style="margin-bottom:.8rem">House Recipe — restricted</p>
+              <p class="mono" style="margin-bottom:.8rem" data-copy="s3.mono.1"></p>
               <div style="display:flex;flex-direction:column;gap:.55rem">
                 <div class="rule"></div><div class="rule" style="width:82%"></div>
                 <div class="rule" style="width:91%"></div><div class="rule" style="width:64%"></div>
@@ -790,9 +790,9 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
     </div>
 
     <div class="copy nowblock" style="margin-top:clamp(1.8rem,4vw,2.9rem)">
-      <p class="era now rv">Now</p>
-      <h3 class="rv d1">Now you say it yourself, in plain words. No ticket, no queue — but the words have to be right.</h3>
-      <p class="note rv d2">knowing what you wanted was never the hard part. explaining it was.</p>
+      <p class="era now rv" data-copy="s3.era.2"></p>
+      <h3 class="rv d1" data-copy="s3.h3.1"></h3>
+      <p class="note rv d2" data-copy="s3.note.1"></p>
     </div>
   </div>
 </section>
@@ -818,8 +818,8 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
       </svg>
     </div>
     <div class="copy">
-      <h2 class="rv">The work still gets done. Just not by your hands.</h2>
-      <p class="lede rv d2">Not a threat. An offer — if you change how you work.</p>
+      <h2 class="rv" data-copy="s1.h2.1"></h2>
+      <p class="lede rv d2" data-copy="s1.lede.1"></p>
     </div>
   </div>
 </section>
@@ -846,9 +846,9 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
         <path class="ln" d="M194 136h22v36h-14"></path>
         <path class="ln" d="M80 182v14M180 182v14"></path>
       </svg>
-      <p class="fig rv">The short version</p>
-      <h2 class="rv d1">Your job was doing the work. Now it is explaining the work — to something that has never tasted cake.</h2>
-      <p class="lede rv d3">Which makes the old way the slow way.</p>
+      <p class="fig rv" data-copy="s2.fig.1"></p>
+      <h2 class="rv d1" data-copy="s2.h2.1"></h2>
+      <p class="lede rv d3" data-copy="s2.lede.1"></p>
     </div>
   </div>
 </section>
@@ -857,8 +857,8 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s4">
   <div class="wrap">
     <div class="copy wide rv" style="margin-bottom:2.6rem">
-      <p class="fig">Fig. 4 — When it is worth it</p>
-      <h2>You don't teach someone to help you bake when you only need to bake one cake.</h2>
+      <p class="fig" data-copy="s4.fig.1"></p>
+      <h2 data-copy="s4.h2.1"></h2>
     </div>
     <div class="split">
       <div>
@@ -881,11 +881,11 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
       </div>
       <div class="copy">
         <div class="beats">
-          <p class="rv d1">Teaching takes longer than doing — <strong>once.</strong> It pays off on many cakes, or the same cake every week.</p>
-          <p class="rv d3">Automating a one-off wastes a day. Baking the same cake four hundred times by hand wastes a year — and <strong>only looks like work.</strong></p>
-          <p class="rv d4"><strong>Your liaison report is a cake.</strong> Same shape every week, same sources, assembled by hand. That is the kind that pays.</p>
+          <p class="rv d1" data-copy="s4.p.1"></p>
+          <p class="rv d3" data-copy="s4.p.2"></p>
+          <p class="rv d4" data-copy="s4.p.3"></p>
         </div>
-        <p class="lede rv d5" style="border-top:1px solid var(--line-soft);padding-top:1.1rem">Some cakes should never be automated. Your kid's birthday cake — making it <em>is</em> the point.</p>
+        <p class="lede rv d5" style="border-top:1px solid var(--line-soft);padding-top:1.1rem" data-copy="s4.lede.1"></p>
       </div>
     </div>
   </div>
@@ -895,14 +895,14 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene" data-scene id="s5">
   <div class="wrap">
     <div class="copy wide">
-      <p class="fig rv">Fig. 5 — What to get ready</p>
-      <h2 class="rv d1">Three things you need to get ready.</h2>
+      <p class="fig rv" data-copy="s5.fig.1"></p>
+      <h2 class="rv d1" data-copy="s5.h2.1"></h2>
       <div style="height:1.8rem"></div>
     </div>
     <div class="marks">
-      <div class="mark rv d2"><b>5.1 · The end product</b><span>Know what done looks like.</span></div>
-      <div class="mark rv d3"><b>5.2 · The recipe</b><span>The step-by-step breakdown of the task.</span></div>
-      <div class="mark rv d4"><b>5.3 · The ingredients</b><span>The resources it needs to actually do it.</span></div>
+      <div class="mark rv d2" data-copy="s5.mark.1"></div>
+      <div class="mark rv d3" data-copy="s5.mark.2"></div>
+      <div class="mark rv d4" data-copy="s5.mark.3"></div>
     </div>
   </div>
 </section>
@@ -911,13 +911,13 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s6">
   <div class="wrap split">
     <div class="copy">
-      <p class="fig rv">5.1 — The end product</p>
-      <h2 class="rv d1">You must know what "done" looks like.</h2>
+      <p class="fig rv" data-copy="s6.fig.1"></p>
+      <h2 class="rv d1" data-copy="s6.h2.1"></h2>
       <div class="beats">
-        <p class="rv d2">An agent always makes <em>something</em>.</p>
-        <p class="rv d4"><strong>You can't hand over a standard you never wrote down.</strong></p>
+        <p class="rv d2" data-copy="s6.p.1"></p>
+        <p class="rv d4" data-copy="s6.p.2"></p>
       </div>
-      <p class="note rv d4">"make it nice" is not an instruction. it's a wish.</p>
+      <p class="note rv d4" data-copy="s6.note.1"></p>
     </div>
     <div>
       <div style="position:relative">
@@ -945,10 +945,10 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
         </svg>
         <div class="rv d4" style="margin-top:1.4rem;border:1px solid var(--card-edge);background:var(--card);padding:1rem 1.1rem;display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap">
           <div>
-            <p class="mono" style="margin-bottom:.35rem">Delivered — Rev B</p>
-            <p style="font-size:var(--f-sm);color:var(--ink-dim);max-width:20rem">Three tiers, ivory fondant, one piped band on the middle tier. Fresh flowers on top. Sixty even slices, on the table by four.</p>
+            <p class="mono" style="margin-bottom:.35rem" data-copy="s6.mono.1"></p>
+            <p style="font-size:var(--f-sm);color:var(--ink-dim);max-width:20rem" data-copy="s6.p.3"></p>
           </div>
-          <span class="stamp">Exactly as asked</span>
+          <span class="stamp" data-copy="s6.stamp.1"></span>
         </div>
       </div>
     </div>
@@ -988,22 +988,22 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
       </svg>
     </div>
     <div class="copy">
-      <p class="fig rv">5.2 — The recipe</p>
-      <h2 class="rv d1">You must break it into steps.</h2>
+      <p class="fig rv" data-copy="s7.fig.1"></p>
+      <h2 class="rv d1" data-copy="s7.h2.1"></h2>
       <div class="beats">
-        <p class="rv d2">"Make a cake" is a wish. "Cream butter and sugar, 4 minutes, medium" is an instruction.</p>
-        <p class="rv d3">Order matters. You can't ice a hot cake.</p>
-        <p class="rv d4"><strong>Checks.</strong> <em>"Until golden brown"</em> is a test you can run.</p>
+        <p class="rv d2" data-copy="s7.p.1"></p>
+        <p class="rv d3" data-copy="s7.p.2"></p>
+        <p class="rv d4" data-copy="s7.p.3"></p>
       </div>
 
       <div class="dialbox rv d4">
-        <p class="mono">How much detail? — drag it</p>
+        <p class="mono" data-copy="s7.mono.1"></p>
         <input type="range" id="gran" min="0" max="4" value="2" step="1" aria-label="Instruction granularity, from a wish to micromanagement">
         <div class="ticks"><span>Too vague</span><span>Too detailed</span></div>
         <div class="dialout" id="gran-out"></div>
         <p class="dialverdict" id="gran-verdict"></p>
       </div>
-      <p class="lede rv d5">Too vague and it guesses. Too detailed and you're baking by hand. <strong>The skill is the middle.</strong></p>
+      <p class="lede rv d5" data-copy="s7.lede.1"></p>
     </div>
   </div>
 </section>
@@ -1012,22 +1012,22 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s8">
   <div class="wrap split">
     <div class="copy">
-      <p class="fig rv">5.3 — The ingredients</p>
-      <h2 class="rv d1">You must give it everything it needs.</h2>
+      <p class="fig rv" data-copy="s8.fig.1"></p>
+      <h2 class="rv d1" data-copy="s8.h2.1"></h2>
       <div class="beats">
-        <p class="rv d2">No ingredients, no cake. And the best baker alive, with no oven, produces batter.</p>
+        <p class="rv d2" data-copy="s8.p.1"></p>
       </div>
-      <p class="note rv d3" style="margin:1.2rem 0">ok lah, i know some cakes don't need an oven. but you get what i mean.</p>
+      <p class="note rv d3" style="margin:1.2rem 0" data-copy="s8.note.1"></p>
       <div class="beats" style="margin-bottom:1.5rem">
-        <p class="rv d3">An agent won't tell you it hit a wall. It works around it — and you find out when you cut the cake open.</p>
+        <p class="rv d3" data-copy="s8.p.2"></p>
       </div>
       <div class="stations rv d4" id="stations" role="list">
-        <button class="station" data-st="pantry" role="listitem"><b>Pantry</b><span>The ingredients <i>— your data, your documents, your systems</i></span></button>
-        <button class="station" data-st="scale" role="listitem"><b>Scale</b><span>Real numbers <i>— not a guess at them</i></span></button>
-        <button class="station" data-st="mixer" role="listitem"><b>Mixer</b><span>Tools <i>— the things it can actually use</i></span></button>
-        <button class="station" data-st="oven" role="listitem"><b>Oven</b><span>Somewhere to run <i>— the machine that does the work</i></span></button>
-        <button class="station" data-st="timer" role="listitem"><b>Timer</b><span>A record <i>— so you can see when it went wrong</i></span></button>
-        <button class="station" data-st="lock" role="listitem"><b>Locked cupboard</b><span>Limits <i>— some doors stay shut, on purpose</i></span></button>
+        <button class="station" data-st="pantry" role="listitem" data-copy="s8.station.1"></button>
+        <button class="station" data-st="scale" role="listitem" data-copy="s8.station.2"></button>
+        <button class="station" data-st="mixer" role="listitem" data-copy="s8.station.3"></button>
+        <button class="station" data-st="oven" role="listitem" data-copy="s8.station.4"></button>
+        <button class="station" data-st="timer" role="listitem" data-copy="s8.station.5"></button>
+        <button class="station" data-st="lock" role="listitem" data-copy="s8.station.6"></button>
       </div>
     </div>
     <div class="rv d2">
@@ -1052,7 +1052,7 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
         <path class="dim" d="M416 274a9 9 0 0 1 18 0v6"></path>
         <rect class="dim" x="412" y="280" width="26" height="18" fill="none"></rect>
       </svg>
-      <p class="mono" style="margin-top:.9rem;text-align:center">Fig. 5.3 — What the kitchen has to hold · <span class="on-tap">tap</span><span class="on-hover">hover</span> a station</p>
+      <p class="mono" style="margin-top:.9rem;text-align:center" data-copy="s8.mono.1"></p>
     </div>
   </div>
 </section>
@@ -1061,13 +1061,13 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s9">
   <div class="wrap">
     <div class="copy wide rv" style="margin-bottom:2.2rem">
-      <p class="fig">Fig. 6 — Three rejected cakes</p>
-      <h2>Top 3 common mistakes</h2>
-      <p class="lede">Click to find out more.</p>
+      <p class="fig" data-copy="s9.fig.1"></p>
+      <h2 data-copy="s9.h2.1"></h2>
+      <p class="lede" data-copy="s9.lede.1"></p>
     </div>
     <div class="gallery">
       <button class="spec rv d1" aria-expanded="false">
-        <span class="stamp">Rejected</span>
+        <span class="stamp" data-copy="s9.stamp.1"></span>
         <svg class="draw" viewBox="0 0 200 150" aria-hidden="true">
           <ellipse class="ln" cx="100" cy="120" rx="72" ry="10"></ellipse>
           <path class="ln" d="M32 74v46M168 74v46"></path>
@@ -1076,12 +1076,12 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
           <text class="blue" x="52" y="42">Blue frosting</text>
           <path class="dim dash" d="M100 50v14"></path>
         </svg>
-        <p style="font-size:var(--f-sm)">Beautiful. Perfectly iced. The wrong cake.</p>
-        <p class="diag">no end goal. you never said what done looked like, so it picked one.</p>
-        <span class="hint">What went wrong →</span>
+        <p style="font-size:var(--f-sm)" data-copy="s9.p.1"></p>
+        <p class="diag" data-copy="s9.diag.1"></p>
+        <span class="hint" data-copy="s9.hint.1"></span>
       </button>
       <button class="spec rv d2" aria-expanded="false">
-        <span class="stamp">Rejected</span>
+        <span class="stamp" data-copy="s9.stamp.2"></span>
         <svg class="draw" viewBox="0 0 200 150" aria-hidden="true">
           <path class="ln" d="M36 60h128v58H36Z"></path>
           <path class="ln-thin" d="M36 60c14-14 114-14 128 0"></path>
@@ -1089,12 +1089,12 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
           <path class="ln-acc" d="M72 82l56 18M72 92l56 18M72 102l56 14M72 76l56 14"></path>
           <text class="acc" x="60" y="140">Raw centre</text>
         </svg>
-        <p style="font-size:var(--f-sm)">Golden outside. Raw inside. You find out when you cut it.</p>
-        <p class="diag">no breakdown. no checkpoints, no order, no "until golden brown."</p>
-        <span class="hint">What went wrong →</span>
+        <p style="font-size:var(--f-sm)" data-copy="s9.p.2"></p>
+        <p class="diag" data-copy="s9.diag.2"></p>
+        <span class="hint" data-copy="s9.hint.2"></span>
       </button>
       <button class="spec rv d3" aria-expanded="false">
-        <span class="stamp">Rejected</span>
+        <span class="stamp" data-copy="s9.stamp.3"></span>
         <svg class="draw" viewBox="0 0 200 150" aria-hidden="true">
           <path class="ln" d="M56 66h88l-10 46a16 16 0 0 1-16 12H82a16 16 0 0 1-16-12Z"></path>
           <ellipse class="ln" cx="100" cy="66" rx="44" ry="9"></ellipse>
@@ -1102,9 +1102,9 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
           <path class="dim dash" d="M100 44v14"></path>
           <text class="acc" x="58" y="38">Perfect batter</text>
         </svg>
-        <p style="font-size:var(--f-sm)">Perfect batter. It never met heat.</p>
-        <p class="diag">nothing to work with. brilliant baker, no oven. it got as far as it could reach.</p>
-        <span class="hint">What went wrong →</span>
+        <p style="font-size:var(--f-sm)" data-copy="s9.p.3"></p>
+        <p class="diag" data-copy="s9.diag.3"></p>
+        <span class="hint" data-copy="s9.hint.3"></span>
       </button>
     </div>
   </div>
@@ -1114,13 +1114,13 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s10">
   <div class="wrap split">
     <div class="copy">
-      <p class="fig rv">Fig. 7 — The part you cannot hand over</p>
-      <h2 class="rv d1">You still have to taste it.</h2>
+      <p class="fig rv" data-copy="s10.fig.1"></p>
+      <h2 class="rv d1" data-copy="s10.h2.1"></h2>
       <div class="beats">
-        <p class="rv d2">Judgement is the one thing you can't hand over. That is why you still need to know how to bake.</p>
-        <p class="rv d3">Done properly, this has a name: <strong>evals.</strong> The same judges, the same score sheet, every batch.</p>
+        <p class="rv d2" data-copy="s10.p.1"></p>
+        <p class="rv d3" data-copy="s10.p.2"></p>
       </div>
-      <p class="note rv d4">the head chef who hasn't baked anything in five years can no longer tell when it's wrong.</p>
+      <p class="note rv d4" data-copy="s10.note.1"></p>
     </div>
     <div class="rv d2">
       <svg class="draw" viewBox="0 0 380 276" role="img" aria-label="A wedge of layer cake on a rimmed plate, five bands of sponge and filling showing on the cut face, a swirl of piped cream on top, with a fork beside it">
@@ -1174,13 +1174,13 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s11">
   <div class="wrap split">
     <div class="copy">
-      <p class="fig rv">Fig. 8 — Revised org chart</p>
-      <h2 class="rv d1">Now everyone is a Manager.</h2>
+      <p class="fig rv" data-copy="s11.fig.1"></p>
+      <h2 class="rv d1" data-copy="s11.h2.1"></h2>
       <div class="beats">
-        <p class="rv d2">You were judged on your output. Now you are judged on your team's.</p>
-        <p class="rv d4">Which makes every hard part of management yours: <strong>defining done, splitting the work, checking quality, knowing when to do it yourself.</strong></p>
-        <p class="rv d4">So the three things are not tips. <strong>They are a job description.</strong></p>
-        <p class="rv d5"><strong>We are all being promoted to manager — of agents.</strong> It is the best promotion most of us will ever get.</p>
+        <p class="rv d2" data-copy="s11.p.1"></p>
+        <p class="rv d4" data-copy="s11.p.2"></p>
+        <p class="rv d4" data-copy="s11.p.3"></p>
+        <p class="rv d5" data-copy="s11.p.4"></p>
       </div>
     </div>
     <div class="orgwrap rv d2">
@@ -1217,22 +1217,22 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s12">
   <div class="wrap">
     <div class="copy wide rv" style="margin-bottom:2.4rem">
-      <h2 style="font-size:var(--f-hero);line-height:1.03">You didn't stop baking. You started running the kitchen.</h2>
-      <p class="lede rv d2">The question isn't whether you can still bake. It's whether you have changed how you work.</p>
+      <h2 style="font-size:var(--f-hero);line-height:1.03" data-copy="s12.h2.1"></h2>
+      <p class="lede rv d2" data-copy="s12.lede.1"></p>
     </div>
     <div class="monday rv d2">
       <div class="coffee"></div>
-      <p class="mono">Monday — start here</p>
+      <p class="mono" data-copy="s12.mono.1"></p>
       <ol>
-        <li>Pick one thing you do every week. The <strong>most repeated</strong>, not the hardest.</li>
-        <li>Write down what done looks like, before you start.</li>
-        <li>Write the recipe. Run it. Fix it. <strong>Repeat.</strong> A few passes in, you stop baking that cake by hand.</li>
+        <li data-copy="s12.li.1"></li>
+        <li data-copy="s12.li.2"></li>
+        <li data-copy="s12.li.3"></li>
       </ol>
     </div>
     <div class="takeaway rv d3" style="margin-top:2.6rem">
-      <div><b>5.1</b>Know what done looks like, or it picks for you.</div>
-      <div><b>5.2</b>Break it into steps. Order, amounts, and a check you can run.</div>
-      <div><b>5.3</b>Give it the ingredients and the tools, or you get batter.</div>
+      <div data-copy="s12.takeaway.1"></div>
+      <div data-copy="s12.takeaway.2"></div>
+      <div data-copy="s12.takeaway.3"></div>
     </div>
   </div>
 </section>
@@ -1241,29 +1241,29 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s-ask">
   <div class="wrap">
     <div class="copy wide rv" style="margin-bottom:2.2rem">
-      <p class="fig">Fig. 9 — Permission to begin</p>
-      <h2>If you can say those three things, there is nothing left to wait for.</h2>
-      <p class="lede rv d1"><a class="inline-link" href="https://go/echo"><strong>Echo</strong></a> is our own agentic AI platform. It is already here, and it is already running.</p>
+      <p class="fig" data-copy="s-ask.fig.1"></p>
+      <h2 data-copy="s-ask.h2.1"></h2>
+      <p class="lede rv d1" data-copy="s-ask.lede.1"></p>
     </div>
     <div class="split" style="align-items:start">
       <div class="monday rv d2">
-        <p class="mono">Before you open Echo</p>
+        <p class="mono" data-copy="s-ask.mono.1"></p>
         <ol>
-          <li><strong>Pick the cake.</strong> One thing you do every week. The most repeated, not the hardest — the liaison report, say.</li>
-          <li><strong>Say what done looks like.</strong> In sentences, before you start. <em>(5.1)</em></li>
-          <li><strong>Write the steps</strong>, in order, with a check you can run at the end. <em>(5.2)</em></li>
-          <li><strong>Point it at what it needs</strong> — your data, your documents, your tools. <em>(5.3)</em></li>
+          <li data-copy="s-ask.li.1"></li>
+          <li data-copy="s-ask.li.2"></li>
+          <li data-copy="s-ask.li.3"></li>
+          <li data-copy="s-ask.li.4"></li>
         </ol>
         <a class="cta" href="https://go/echo">Open Echo · go/echo →</a>
       </div>
       <div class="copy">
-        <p class="era rv d2">Then</p>
+        <p class="era rv d2" data-copy="s-ask.era.1"></p>
         <div class="beats">
-          <p class="rv d3">If you can articulate those three things — and it is something <strong>Echo can already do</strong> — then why not start trying?</p>
-          <p class="rv d4">You do not need a project, a budget, or a room full of people. <strong>You need one cake.</strong></p>
-          <p class="rv d5">Nobody is going to hand you a finished kitchen. You start small, you watch what comes out, and you learn what to ask for next time.</p>
+          <p class="rv d3" data-copy="s-ask.p.1"></p>
+          <p class="rv d4" data-copy="s-ask.p.2"></p>
+          <p class="rv d5" data-copy="s-ask.p.3"></p>
         </div>
-        <p class="note rv d5">the three things are the whole entry fee. you already have them.</p>
+        <p class="note rv d5" data-copy="s-ask.note.1"></p>
       </div>
     </div>
   </div>
@@ -1273,8 +1273,8 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene tall" data-scene id="s-done">
   <div class="wrap">
     <div class="copy wide rv" style="margin-bottom:1.4rem">
-      <p class="fig">Fig. 10 — The cake, as specified</p>
-      <h2>And this is what done looks like.</h2>
+      <p class="fig" data-copy="s-done.fig.1"></p>
+      <h2 data-copy="s-done.h2.1"></h2>
     </div>
     <div class="split" style="align-items:center;grid-template-columns:1.35fr 1fr">
       <div class="rv d1">
@@ -1416,23 +1416,23 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 
       <div class="copy">
         <div class="beats">
-          <p class="rv d2">Nobody guessed the number of layers. Nobody guessed if it needed the flowers. Nobody had to be asked twice.</p>
-          <p class="rv d3"><strong>Every line on that drawing was a sentence somebody wrote down first.</strong></p>
+          <p class="rv d2" data-copy="s-done.p.1"></p>
+          <p class="rv d3" data-copy="s-done.p.2"></p>
         </div>
         <div class="rv d4" style="margin-top:1.6rem">
           <div class="titleblock">
-            <span>Drawing</span><span><b>001 &#183; Rev B</b></span>
-            <span>Sponge</span><span><b>Pandan chiffon</b></span>
-            <span>Filling</span><span><b>Gula melaka buttercream</b></span>
-            <span>Finish</span><span><b>Ivory fondant</b></span>
-            <span>Flowers</span><span><b>Fresh, top tier only</b></span>
-            <span>Tin</span><span><b>280 / 196 / 124 mm</b></span>
-            <span>Portions</span><span><b>60</b></span>
-            <span>On the table</span><span><b>16:00</b></span>
-            <span>Status</span><span><b>Done</b></span>
+            <span data-copy="s-done.tb.1"></span><span data-copy="s-done.tb.2"></span>
+            <span data-copy="s-done.tb.3"></span><span data-copy="s-done.tb.4"></span>
+            <span data-copy="s-done.tb.5"></span><span data-copy="s-done.tb.6"></span>
+            <span data-copy="s-done.tb.7"></span><span data-copy="s-done.tb.8"></span>
+            <span data-copy="s-done.tb.9"></span><span data-copy="s-done.tb.10"></span>
+            <span data-copy="s-done.tb.11"></span><span data-copy="s-done.tb.12"></span>
+            <span data-copy="s-done.tb.13"></span><span data-copy="s-done.tb.14"></span>
+            <span data-copy="s-done.tb.15"></span><span data-copy="s-done.tb.16"></span>
+            <span data-copy="s-done.tb.17"></span><span data-copy="s-done.tb.18"></span>
           </div>
         </div>
-        <p class="note rv d5" style="margin-top:1.5rem">this is the easy part. saying it out loud first was the work.</p>
+        <p class="note rv d5" style="margin-top:1.5rem" data-copy="s-done.note.1"></p>
       </div>
     </div>
   </div>
@@ -1442,27 +1442,21 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 <section class="scene" data-scene id="s13" hidden style="min-height:auto;padding-top:6svh;padding-bottom:6svh">
   <div class="wrap">
     <div class="copy wide rv" style="margin-bottom:1.6rem">
-      <p class="fig">Appendix — the rest of the kitchen</p>
-      <h2>The rest of the kitchen, in one place.</h2>
-      <p class="lede">Click a card. ★ marks the ones used above.</p>
+      <p class="fig" data-copy="s13.fig.1"></p>
+      <h2 data-copy="s13.h2.1"></h2>
+      <p class="lede" data-copy="s13.lede.1"></p>
     </div>
     <div class="filters" id="filters" role="group" aria-label="Filter reference cards by group"></div>
     <div class="wall" id="wall"></div>
 
-    <p class="fig" style="margin-top:3rem">Read next</p>
+    <p class="fig" style="margin-top:3rem" data-copy="s13.fig.2"></p>
     <div class="sources">
-      <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">
-        <b>Building effective agents</b><i>Anthropic — the five patterns</i></a>
-      <a href="https://www.anthropic.com/engineering/writing-tools-for-agents" target="_blank" rel="noopener">
-        <b>Writing effective tools for agents</b><i>Anthropic — "describe it as you would to a new hire"</i></a>
-      <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener">
-        <b>Effective context engineering</b><i>Anthropic — how much to tell it, and when</i></a>
-      <a href="https://addyosmani.com/blog/good-spec/" target="_blank" rel="noopener">
-        <b>How to write a good spec for AI agents</b><i>Addy Osmani — "most agent files fail because they're too vague"</i></a>
-      <a href="https://hamel.dev/blog/posts/evals-faq/" target="_blank" rel="noopener">
-        <b>LLM evals: everything you need to know</b><i>Hamel Husain &amp; Shreya Shankar — running the taste test</i></a>
-      <a href="https://metr.org/blog/2026-02-24-uplift-update/" target="_blank" rel="noopener">
-        <b>The 19% study, and what came after</b><i>METR — and their own update on it</i></a>
+      <a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener" data-copy="s13.source.1"></a>
+      <a href="https://www.anthropic.com/engineering/writing-tools-for-agents" target="_blank" rel="noopener" data-copy="s13.source.2"></a>
+      <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener" data-copy="s13.source.3"></a>
+      <a href="https://addyosmani.com/blog/good-spec/" target="_blank" rel="noopener" data-copy="s13.source.4"></a>
+      <a href="https://hamel.dev/blog/posts/evals-faq/" target="_blank" rel="noopener" data-copy="s13.source.5"></a>
+      <a href="https://metr.org/blog/2026-02-24-uplift-update/" target="_blank" rel="noopener" data-copy="s13.source.6"></a>
     </div>
   </div>
 </section>
@@ -1483,9 +1477,198 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
 }
 </style>
 
+<script type="application/json" id="copy">
+{
+ "hud.mono.1": "Sheet index",
+ "hud.idx.1": "Drawing No. 001 — Subject: The baker",
+ "hud.idx.2": "Fig. 2 — The tray",
+ "hud.idx.3": "Fig. 3 — How it used to work",
+ "hud.idx.4": "Fig. 4 — When it is worth it",
+ "hud.idx.5": "Fig. 5 — What to get ready",
+ "hud.idx.6": "5.1 — The end product",
+ "hud.idx.7": "5.2 — The recipe",
+ "hud.idx.8": "5.3 — The ingredients",
+ "hud.idx.9": "Fig. 6 — Three rejected cakes",
+ "hud.idx.10": "Fig. 7 — The part you cannot hand over",
+ "hud.idx.11": "Fig. 8 — Revised org chart",
+ "hud.idx.12": "Monday — start here",
+ "hud.idx.13": "Fig. 9 — Permission to begin",
+ "hud.idx.14": "Fig. 10 — The cake, as specified",
+ "hud.mono.2": "Progress",
+ "s0.fig.1": "Drawing No. 001 — Subject: The baker",
+ "s0.h1.1": "Congratulations.<span class=\"sub\">You've been promoted.<\/span>",
+ "s0.lede.1": "You didn't apply for it. Nobody asked you. And it has already happened.",
+ "s0.p.1": "Imagine, for a moment, that you are a baker.",
+ "s0.p.2": "The thing you make — over and over, the thing people come to you for — is <strong>a cake.<\/strong>",
+ "s0.note.1": "hold on to that. the rest of the page runs on it.",
+ "s0.cue.1": "<i><\/i> Scroll — the oven is cold",
+ "s0.tb.1": "Drawn by",
+ "s0.tb.2": "<b>You<\/b>",
+ "s0.tb.3": "Revision",
+ "s0.tb.4": "<b>Final<\/b>",
+ "s0.tb.5": "Status",
+ "s0.tb.6": "<b>Replaced<\/b>",
+ "s-tray.fig.1": "Fig. 2 — The tray",
+ "s-tray.h2.1": "Automation went to the cakes with the longest queue. Some never made it onto the list.",
+ "s-tray.era.1": "Already automated",
+ "s-tray.p.1": "Payroll, invoices, month-end. Someone wrote that recipe once, and the whole building presses the button.",
+ "s-tray.era.2": "Not automated",
+ "s-tray.p.2": "Then <strong>your<\/strong> cake. Odd shape, twice a month, wanted by nine people. Still done by hand.",
+ "s-tray.p.3": "There are only so many engineers. They go to the cakes with the most people waiting.",
+ "s-tray.p.4": "<strong>And that will not change.<\/strong> IT will never have enough people for everyone's cake.",
+ "s-tray.lede.1": "So it stays hand-made — unless you can bake it yourself.",
+ "s-rev.mono.1": "Agentic AI",
+ "s-rev.p.1": "AI that does not just answer questions. It does the work.",
+ "s-rev.mono.2": "Rev. B — Drawing 001 replaced",
+ "s3.fig.1": "Fig. 3 — How it used to work",
+ "s3.h2.1": "The cakes that made the list came with a recipe. You could follow it. You could not change it.",
+ "s3.era.1": "In the past",
+ "s3.p.1": "The recipe lived in code. You don't write code.",
+ "s3.p.2": "You filed a ticket. You waited. You got back the wrong thing.",
+ "s3.mono.1": "House Recipe — restricted",
+ "s3.era.2": "Now",
+ "s3.h3.1": "Now you say it yourself, in plain words. No ticket, no queue — but the words have to be right.",
+ "s3.note.1": "knowing what you wanted was never the hard part. explaining it was.",
+ "s1.h2.1": "The work still gets done. Just not by your hands.",
+ "s1.lede.1": "Not a threat. An offer — if you change how you work.",
+ "s2.fig.1": "The short version",
+ "s2.h2.1": "Your job was doing the work. Now it is explaining the work — to something that has never tasted cake.",
+ "s2.lede.1": "Which makes the old way the slow way.",
+ "s4.fig.1": "Fig. 4 — When it is worth it",
+ "s4.h2.1": "You don't teach someone to help you bake when you only need to bake one cake.",
+ "s4.p.1": "Teaching takes longer than doing — <strong>once.<\/strong> It pays off on many cakes, or the same cake every week.",
+ "s4.p.2": "Automating a one-off wastes a day. Baking the same cake four hundred times by hand wastes a year — and <strong>only looks like work.<\/strong>",
+ "s4.p.3": "<strong>Your liaison report is a cake.<\/strong> Same shape every week, same sources, assembled by hand. That is the kind that pays.",
+ "s4.lede.1": "Some cakes should never be automated. Your kid's birthday cake — making it <em>is<\/em> the point.",
+ "s5.fig.1": "Fig. 5 — What to get ready",
+ "s5.h2.1": "Three things you need to get ready.",
+ "s5.mark.1": "<b>5.1 · The end product<\/b><span>Know what done looks like.<\/span>",
+ "s5.mark.2": "<b>5.2 · The recipe<\/b><span>The step-by-step breakdown of the task.<\/span>",
+ "s5.mark.3": "<b>5.3 · The ingredients<\/b><span>The resources it needs to actually do it.<\/span>",
+ "s6.fig.1": "5.1 — The end product",
+ "s6.h2.1": "You must know what \"done\" looks like.",
+ "s6.p.1": "An agent always makes <em>something<\/em>.",
+ "s6.p.2": "<strong>You can't hand over a standard you never wrote down.<\/strong>",
+ "s6.note.1": "\"make it nice\" is not an instruction. it's a wish.",
+ "s6.mono.1": "Delivered — Rev B",
+ "s6.p.3": "Three tiers, ivory fondant, one piped band on the middle tier. Fresh flowers on top. Sixty even slices, on the table by four.",
+ "s6.stamp.1": "Exactly as asked",
+ "s7.fig.1": "5.2 — The recipe",
+ "s7.h2.1": "You must break it into steps.",
+ "s7.p.1": "\"Make a cake\" is a wish. \"Cream butter and sugar, 4 minutes, medium\" is an instruction.",
+ "s7.p.2": "Order matters. You can't ice a hot cake.",
+ "s7.p.3": "<strong>Checks.<\/strong> <em>\"Until golden brown\"<\/em> is a test you can run.",
+ "s7.mono.1": "How much detail? — drag it",
+ "s7.lede.1": "Too vague and it guesses. Too detailed and you're baking by hand. <strong>The skill is the middle.<\/strong>",
+ "s8.fig.1": "5.3 — The ingredients",
+ "s8.h2.1": "You must give it everything it needs.",
+ "s8.p.1": "No ingredients, no cake. And the best baker alive, with no oven, produces batter.",
+ "s8.note.1": "ok lah, i know some cakes don't need an oven. but you get what i mean.",
+ "s8.p.2": "An agent won't tell you it hit a wall. It works around it — and you find out when you cut the cake open.",
+ "s8.station.1": "<b>Pantry<\/b><span>The ingredients <i>— your data, your documents, your systems<\/i><\/span>",
+ "s8.station.2": "<b>Scale<\/b><span>Real numbers <i>— not a guess at them<\/i><\/span>",
+ "s8.station.3": "<b>Mixer<\/b><span>Tools <i>— the things it can actually use<\/i><\/span>",
+ "s8.station.4": "<b>Oven<\/b><span>Somewhere to run <i>— the machine that does the work<\/i><\/span>",
+ "s8.station.5": "<b>Timer<\/b><span>A record <i>— so you can see when it went wrong<\/i><\/span>",
+ "s8.station.6": "<b>Locked cupboard<\/b><span>Limits <i>— some doors stay shut, on purpose<\/i><\/span>",
+ "s8.mono.1": "Fig. 5.3 — What the kitchen has to hold · <span class=\"on-tap\">tap<\/span><span class=\"on-hover\">hover<\/span> a station",
+ "s9.fig.1": "Fig. 6 — Three rejected cakes",
+ "s9.h2.1": "Top 3 common mistakes",
+ "s9.lede.1": "Click to find out more.",
+ "s9.stamp.1": "Rejected",
+ "s9.p.1": "Beautiful. Perfectly iced. The wrong cake.",
+ "s9.diag.1": "no end goal. you never said what done looked like, so it picked one.",
+ "s9.hint.1": "What went wrong →",
+ "s9.stamp.2": "Rejected",
+ "s9.p.2": "Golden outside. Raw inside. You find out when you cut it.",
+ "s9.diag.2": "no breakdown. no checkpoints, no order, no \"until golden brown.\"",
+ "s9.hint.2": "What went wrong →",
+ "s9.stamp.3": "Rejected",
+ "s9.p.3": "Perfect batter. It never met heat.",
+ "s9.diag.3": "nothing to work with. brilliant baker, no oven. it got as far as it could reach.",
+ "s9.hint.3": "What went wrong →",
+ "s10.fig.1": "Fig. 7 — The part you cannot hand over",
+ "s10.h2.1": "You still have to taste it.",
+ "s10.p.1": "Judgement is the one thing you can't hand over. That is why you still need to know how to bake.",
+ "s10.p.2": "Done properly, this has a name: <strong>evals.<\/strong> The same judges, the same score sheet, every batch.",
+ "s10.note.1": "the head chef who hasn't baked anything in five years can no longer tell when it's wrong.",
+ "s11.fig.1": "Fig. 8 — Revised org chart",
+ "s11.h2.1": "Now everyone is a Manager.",
+ "s11.p.1": "You were judged on your output. Now you are judged on your team's.",
+ "s11.p.2": "Which makes every hard part of management yours: <strong>defining done, splitting the work, checking quality, knowing when to do it yourself.<\/strong>",
+ "s11.p.3": "So the three things are not tips. <strong>They are a job description.<\/strong>",
+ "s11.p.4": "<strong>We are all being promoted to manager — of agents.<\/strong> It is the best promotion most of us will ever get.",
+ "s12.h2.1": "You didn't stop baking. You started running the kitchen.",
+ "s12.lede.1": "The question isn't whether you can still bake. It's whether you have changed how you work.",
+ "s12.mono.1": "Monday — start here",
+ "s12.li.1": "Pick one thing you do every week. The <strong>most repeated<\/strong>, not the hardest.",
+ "s12.li.2": "Write down what done looks like, before you start.",
+ "s12.li.3": "Write the recipe. Run it. Fix it. <strong>Repeat.<\/strong> A few passes in, you stop baking that cake by hand.",
+ "s12.takeaway.1": "<b>5.1<\/b>Know what done looks like, or it picks for you.",
+ "s12.takeaway.2": "<b>5.2<\/b>Break it into steps. Order, amounts, and a check you can run.",
+ "s12.takeaway.3": "<b>5.3<\/b>Give it the ingredients and the tools, or you get batter.",
+ "s-ask.fig.1": "Fig. 9 — Permission to begin",
+ "s-ask.h2.1": "If you can say those three things, there is nothing left to wait for.",
+ "s-ask.lede.1": "<a class=\"inline-link\" href=\"https://go/echo\"><strong>Echo<\/strong><\/a> is our own agentic AI platform. It is already here, and it is already running.",
+ "s-ask.mono.1": "Before you open Echo",
+ "s-ask.li.1": "<strong>Pick the cake.<\/strong> One thing you do every week. The most repeated, not the hardest — the liaison report, say.",
+ "s-ask.li.2": "<strong>Say what done looks like.<\/strong> In sentences, before you start. <em>(5.1)<\/em>",
+ "s-ask.li.3": "<strong>Write the steps<\/strong>, in order, with a check you can run at the end. <em>(5.2)<\/em>",
+ "s-ask.li.4": "<strong>Point it at what it needs<\/strong> — your data, your documents, your tools. <em>(5.3)<\/em>",
+ "s-ask.era.1": "Then",
+ "s-ask.p.1": "If you can articulate those three things — and it is something <strong>Echo can already do<\/strong> — then why not start trying?",
+ "s-ask.p.2": "You do not need a project, a budget, or a room full of people. <strong>You need one cake.<\/strong>",
+ "s-ask.p.3": "Nobody is going to hand you a finished kitchen. You start small, you watch what comes out, and you learn what to ask for next time.",
+ "s-ask.note.1": "the three things are the whole entry fee. you already have them.",
+ "s-done.fig.1": "Fig. 10 — The cake, as specified",
+ "s-done.h2.1": "And this is what done looks like.",
+ "s-done.p.1": "Nobody guessed the number of layers. Nobody guessed if it needed the flowers. Nobody had to be asked twice.",
+ "s-done.p.2": "<strong>Every line on that drawing was a sentence somebody wrote down first.<\/strong>",
+ "s-done.tb.1": "Drawing",
+ "s-done.tb.2": "<b>001 &#183; Rev B<\/b>",
+ "s-done.tb.3": "Sponge",
+ "s-done.tb.4": "<b>Pandan chiffon<\/b>",
+ "s-done.tb.5": "Filling",
+ "s-done.tb.6": "<b>Gula melaka buttercream<\/b>",
+ "s-done.tb.7": "Finish",
+ "s-done.tb.8": "<b>Ivory fondant<\/b>",
+ "s-done.tb.9": "Flowers",
+ "s-done.tb.10": "<b>Fresh, top tier only<\/b>",
+ "s-done.tb.11": "Tin",
+ "s-done.tb.12": "<b>280 / 196 / 124 mm<\/b>",
+ "s-done.tb.13": "Portions",
+ "s-done.tb.14": "<b>60<\/b>",
+ "s-done.tb.15": "On the table",
+ "s-done.tb.16": "<b>16:00<\/b>",
+ "s-done.tb.17": "Status",
+ "s-done.tb.18": "<b>Done<\/b>",
+ "s-done.note.1": "this is the easy part. saying it out loud first was the work.",
+ "s13.fig.1": "Appendix — the rest of the kitchen",
+ "s13.h2.1": "The rest of the kitchen, in one place.",
+ "s13.lede.1": "Click a card. ★ marks the ones used above.",
+ "s13.fig.2": "Read next",
+ "s13.source.1": "\n        <b>Building effective agents<\/b><i>Anthropic — the five patterns<\/i>",
+ "s13.source.2": "\n        <b>Writing effective tools for agents<\/b><i>Anthropic — \"describe it as you would to a new hire\"<\/i>",
+ "s13.source.3": "\n        <b>Effective context engineering<\/b><i>Anthropic — how much to tell it, and when<\/i>",
+ "s13.source.4": "\n        <b>How to write a good spec for AI agents<\/b><i>Addy Osmani — \"most agent files fail because they're too vague\"<\/i>",
+ "s13.source.5": "\n        <b>LLM evals: everything you need to know<\/b><i>Hamel Husain &amp; Shreya Shankar — running the taste test<\/i>",
+ "s13.source.6": "\n        <b>The 19% study, and what came after<\/b><i>METR — and their own update on it<\/i>"
+}
+</script>
+
 <script>
 (function(){
 "use strict";
+/* every line of prose lives in the JSON block above; the markup carries
+   only data-copy keys. hydrate first, before anything measures or reveals. */
+(function(){
+  const src=document.getElementById("copy"); if(!src) return;
+  let COPY; try{ COPY=JSON.parse(src.textContent); }catch(e){ return; }
+  for(const n of document.querySelectorAll("[data-copy]")){
+    const v=COPY[n.getAttribute("data-copy")];
+    if(v!=null) n.innerHTML=v;
+  }
+})();
 const root=document.documentElement;
 const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const clamp=(v,a,b)=>v<a?a:v>b?b:v;
