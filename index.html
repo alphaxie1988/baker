@@ -193,6 +193,7 @@ svg .dash{stroke-dasharray:5 4}
 svg text{font-family:var(--mono);font-size:9px;letter-spacing:.1em;fill:var(--ink-faint);text-transform:uppercase}
 svg text.acc{fill:var(--accent)}
 svg .mask{fill:var(--ground);stroke:none}
+svg .pupil{fill:var(--line);stroke:none}
 svg .plotbg{fill:var(--ground-2);opacity:.5;stroke:none}
 svg .blue{stroke:#4a86c0}
 svg text.blue{fill:#4a86c0;stroke:none}
@@ -545,14 +546,26 @@ footer .wrap{display:flex;align-items:center;gap:1.15rem;flex-wrap:wrap}
         </g>
 
         <!-- head, then the brim over the top of it -->
-        <ellipse class="mask" cx="210" cy="222" rx="44" ry="48"></ellipse>
-        <ellipse class="ln" cx="210" cy="222" rx="44" ry="48"></ellipse>
-        <path class="ln" d="M167 212c-10-3-15 5-13 13 2 7 9 9 13 7"></path>
-        <path class="ln" d="M253 212c10-3 15 5 13 13-2 7-9 9-13 7"></path>
-        <circle class="ln" cx="196" cy="214" r="3.2"></circle>
-        <circle class="ln" cx="224" cy="214" r="3.2"></circle>
-        <path class="ln" d="M210 216q7 9-1 13"></path>
-        <path class="ln" d="M198 240q12 9 24 0"></path>
+        <path class="mask" d="M210 168C184 168 172 176 168 190C164 202 164 218 169 232C175 250 189 264 210 264C231 264 245 250 251 232C256 218 256 202 252 190C248 176 236 168 210 168Z"></path>
+        <path class="ln" d="M210 168C184 168 172 176 168 190C164 202 164 218 169 232C175 250 189 264 210 264C231 264 245 250 251 232C256 218 256 202 252 190C248 176 236 168 210 168Z"></path>
+        <!-- ears, with the helix -->
+        <path class="ln" d="M167 203c-12-3-17 6-15 16 2 9 11 11 16 8"></path>
+        <path class="ln-thin" d="M163 211c-4 1-5 6-3 10"></path>
+        <path class="ln" d="M253 203c12-3 17 6 15 16-2 9-11 11-16 8"></path>
+        <path class="ln-thin" d="M257 211c4 1 5 6 3 10"></path>
+        <!-- brow, eyes, nose, mouth -->
+        <path class="ln" d="M189 205q8-6 16-1"></path>
+        <path class="ln" d="M215 204q8-5 16 1"></path>
+        <circle class="ln" cx="197" cy="216" r="4.4"></circle>
+        <circle class="pupil" cx="198" cy="216.6" r="1.7"></circle>
+        <circle class="ln" cx="223" cy="216" r="4.4"></circle>
+        <circle class="pupil" cx="224" cy="216.6" r="1.7"></circle>
+        <path class="ln" d="M210 216q7 10-1 14"></path>
+        <path class="ln" d="M197 241q13 10 26 0"></path>
+        <!-- cheeks, and a jaw a chef has earned -->
+        <path class="ln-thin" d="M190 233q-3 8 1 13"></path>
+        <path class="ln-thin" d="M230 233q3 8-1 13"></path>
+        <path class="ln-thin" d="M197 256q13 6 26 0"></path>
         <path class="mask" d="M152 148q58-7 116 0v22q-58 7-116 0z"></path>
         <path class="ln" d="M152 148q58-7 116 0v22q-58 7-116 0z"></path>
 
